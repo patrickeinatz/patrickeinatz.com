@@ -1,0 +1,91 @@
+/* FONT FACES */
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("../fonts/HelveticaNeue.ttf")format("truetype");
+}
+
+@font-face {
+    font-family: 'Helvetica Neue Light';
+    src: url("../fonts/HelveticaNeueLight.ttf")format("truetype");
+}
+
+@font-face {
+    font-family: 'Helvetica Neue Medium';
+    src: url("../fonts/HelveticaNeueMedium.ttf")format("truetype");
+}
+
+@font-face {
+    font-family: 'Helvetica Neue Bold';
+    src: url("../fonts/HelveticaNeueBold.ttf")format("truetype");
+}
+
+@font-face {
+    font-family: 'Helvetica Neue Heavy';
+    src: url("../fonts/HelveticaNeueHv.ttf")format("truetype");
+}
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 2rem;
+    font-family: "Helvetica Neue Light";
+}
+
+h1{
+    font-family: "Helvetica Neue";
+    font-size: 50px;
+}
+
+h2, h3, h4 {
+    font-family: "Helvetica Neue Bold";
+}
+
+.nav-item {
+    font-family: "Helvetica Neue Medium";
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.navbar-brand{
+    font-family: "Helvetica Neue Heavy";
+    text-transform: uppercase;
+}
+
+.navbar-brand-thin{
+    font-family: "Helvetica Neue Light";
+    text-transform: lowercase;
+}
+
+.bg-inverse{
+    background-color: #0D0D0D!important;
+}
+
+.jumbotron{
+    color: #ffffff;
+    background-color: #262626;
+    border-radius: 0px!important;
+}
+
+ol.breadcrumb{
+    background: none!important;
+    padding: 0px!important;
+    margin: 0px!important;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+li.breadcrumb-item > a{
+    color: #ffffff;
+}
+
+li.breadcrumb-item > a:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+li.breadcrumb-item.active{
+    color: #1EA4D9!important;
+}
+
+li.breadcrumb-item.active > a{
+    color: #1EA4D9!important;
+}
