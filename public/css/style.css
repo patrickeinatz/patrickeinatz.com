@@ -36,7 +36,7 @@ h1{
 }
 
 h2, h3, h4 {
-    font-family: "Helvetica Neue Bold";
+    font-family: "Helvetica Neue Heavy";
 }
 
 .nav-item {
@@ -47,7 +47,6 @@ h2, h3, h4 {
 
 .navbar-brand{
     font-family: "Helvetica Neue Heavy";
-    text-transform: uppercase;
 }
 
 .navbar-brand-thin{
