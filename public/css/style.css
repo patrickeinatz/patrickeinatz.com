@@ -32,7 +32,7 @@ body {
 
 h1{
     font-family: "Helvetica Neue";
-    font-size: 50px;
+    font-size: 60px;
 }
 
 h2, h3, h4 {
@@ -46,6 +46,7 @@ h2, h3, h4 {
 }
 
 .navbar-brand{
+    color: #1d1e1f!important;
     font-family: "Helvetica Neue Heavy";
 }
 
@@ -60,8 +61,13 @@ h2, h3, h4 {
 
 .jumbotron{
     color: #ffffff;
-    background-color: #262626;
+    background-color: #1d1e1f;
     border-radius: 0px!important;
+}
+
+.breadcrumb{
+    font-family: monospace, monospace;
+    text-transform: lowercase;
 }
 
 ol.breadcrumb{
@@ -69,7 +75,7 @@ ol.breadcrumb{
     padding: 0px!important;
     margin: 0px!important;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 li.breadcrumb-item > a{
@@ -82,9 +88,9 @@ li.breadcrumb-item > a:hover{
 }
 
 li.breadcrumb-item.active{
-    color: #1EA4D9!important;
+    color: #ffffff!important;
 }
 
 li.breadcrumb-item.active > a{
-    color: #1EA4D9!important;
+    color: #ffffff!important;
 }

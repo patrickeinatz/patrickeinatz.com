@@ -28,12 +28,12 @@ class BasicPageController extends AbstractController
     }
 
     /**
-     * @Route("/whosyourpaddy", name="whosyourpaddy")
+     * @Route("/archive", name="archive")
      */
     public function whosyourpaddy()
     {
-        return $this->render('basic_page/whosyourpaddy.html.twig', [
-            'title' => "Who's your Paddy?"
+        return $this->render('basic_page/archive.html.twig', [
+            'title' => "Archive"
         ]);
     }
 }
