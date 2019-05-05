@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf0f0146-e37f-4eb9-9e94-6875b5716ca7" name="Default Changelist" comment="">
+    <list default="true" id="cf0f0146-e37f-4eb9-9e94-6875b5716ca7" name="Default Changelist" comment="" />
       <change afterPath="$PROJECT_DIR$/src/Helper/LoggerTrait.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Services/SlackClient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -259,11 +259,11 @@
       <path value="$PROJECT_DIR$/vendor/php-http/curl-client" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="1280" />
-    <option name="y" value="32" />
-    <option name="width" value="1280" />
-    <option name="height" value="1344" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1084" />
+    <option name="y" value="379" />
+    <option name="width" value="1270" />
+    <option name="height" value="956" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -319,7 +319,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -356,7 +356,7 @@
       <workItem from="1556705795775" duration="1306000" />
       <workItem from="1556713229128" duration="624000" />
       <workItem from="1557005795869" duration="503000" />
-      <workItem from="1557039117206" duration="1711000" />
+      <workItem from="1557039117206" duration="3583000" />
     </task>
     <servers />
   </component>
@@ -364,7 +364,7 @@
     <option name="totallyTimeSpent" value="40039000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="32" width="1280" height="1344" extended-state="4" />
+    <frame x="0" y="32" width="2560" height="1344" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -382,7 +382,7 @@
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Database" order="0" weight="0.32956383" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
