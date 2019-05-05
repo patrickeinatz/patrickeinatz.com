@@ -3,11 +3,24 @@
 namespace App\Controller;
 
 use App\Services\MarkdownHandler;
+use Nexy\Slack\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BasicPageController extends AbstractController
 {
+
+    /**
+     * @var Client
+     */
+    private $slack;
+
+    public function __construct(Client $slack)
+    {
+
+        $this->slack = $slack;
+    }
+
     /**
      * @Route("/", name="index")
      */
@@ -20,8 +33,6 @@ Duis autem vel eum [iriure dolor](https://baconipsum.com) in hendrerit in vulput
 
 Ut wisi enim ad minim veniam, quis **nostrud** exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
 EOF;
-
-
 
     $content = $markdownHandler->parse($content);
 
@@ -44,8 +55,18 @@ EOF;
     /**
      * @Route("/archive", name="archive")
      */
-    public function whosyourpaddy()
+    public function archive()
     {
+        //some fun with slack
+        $message = $this->slack->createMessage()
+            ->from('Symfony')
+            ->withIcon(':ghost')
+            ->setText('Someone checks out your archive')
+            ;
+        $this->slack->sendMessage($message);
+        //fun is over
+
+
         return $this->render('basic_page/archive.html.twig', [
             'title' => "Archive"
         ]);

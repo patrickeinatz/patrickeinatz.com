@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 
 class MarkdownHandler{
@@ -10,18 +11,37 @@ class MarkdownHandler{
     private $markdown;
 
     private $cache;
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
+    /**
+     * @var bool
+     */
+    private $isDebug;
 
-    public function __construct(MarkdownParserInterface $markdown, AdapterInterface $cache)
+    public function __construct(MarkdownParserInterface $markdown, AdapterInterface $cache, LoggerInterface $markdownLogger, bool $isDebug)
     {
         $this->markdown = $markdown;
         $this->cache = $cache;
+        $this->logger = $markdownLogger;
+        $this->isDebug = $isDebug;
     }
 
-    public function parse($string)
+    public function parse($source)
     {
-        $item = $this->cache->getItem('markdown_'.md5($string));
+        if(strpos($source,'Lorem ipsum') !== false){
+            $this->logger->info("TODO: edit example text");
+        }
+
+        if($this->isDebug)
+        {
+            return $this->markdown->transformMarkdown($source);
+        }
+
+        $item = $this->cache->getItem('markdown_'.md5($source));
         if(!$item->isHit()){
-            $item->set($this->markdown->transformMarkdown($string));
+            $item->set($this->markdown->transformMarkdown($source));
             $this->cache->save($item);
         }
 
