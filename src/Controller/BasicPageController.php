@@ -3,23 +3,12 @@
 namespace App\Controller;
 
 use App\Services\MarkdownHandler;
-use Nexy\Slack\Client;
+use App\Services\SlackClient;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BasicPageController extends AbstractController
 {
-
-    /**
-     * @var Client
-     */
-    private $slack;
-
-    public function __construct(Client $slack)
-    {
-
-        $this->slack = $slack;
-    }
 
     /**
      * @Route("/", name="index")
@@ -55,17 +44,9 @@ EOF;
     /**
      * @Route("/archive", name="archive")
      */
-    public function archive()
+    public function archive(SlackClient $slackClient)
     {
-        //some fun with slack
-        $message = $this->slack->createMessage()
-            ->from('Symfony')
-            ->withIcon(':ghost')
-            ->setText('Someone checks out your archive')
-            ;
-        $this->slack->sendMessage($message);
-        //fun is over
-
+        $slackClient->sendNotification('patrickeinatz.com','Jemand sieht sich das Archive an!');
 
         return $this->render('basic_page/archive.html.twig', [
             'title' => "Archive"
