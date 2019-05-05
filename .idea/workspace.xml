@@ -183,8 +183,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1279" />
-    <option name="y" value="390" />
+    <option name="x" value="1084" />
+    <option name="y" value="379" />
     <option name="width" value="1270" />
     <option name="height" value="956" />
   </component>
@@ -230,7 +230,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -262,19 +262,19 @@
       <workItem from="1556705795775" duration="1306000" />
       <workItem from="1556713229128" duration="624000" />
       <workItem from="1557005795869" duration="503000" />
-      <workItem from="1557039117206" duration="3030000" />
+      <workItem from="1557039117206" duration="3583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23661000" />
+    <option name="totallyTimeSpent" value="24214000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1141" y="719" width="1270" height="956" extended-state="0" />
+    <frame x="0" y="32" width="2560" height="1344" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4977221" visible="true" weight="0.17996743" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4977221" visible="true" weight="0.08776807" />
       <window_info id="Structure" order="2" sideWeight="0.5022779" side_tool="true" weight="0.13678065" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
