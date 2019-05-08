@@ -14,7 +14,8 @@ class NewsController extends AbstractController
     {
 
         return $this->render('news/news_article.html.twig', [
-            'title' => str_replace('-',' ',$slug)
+            'title' => str_replace('-',' ',$slug),
+            'slug' => str_replace('-','_', $slug)
         ]);
     }
 }
