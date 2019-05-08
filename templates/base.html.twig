@@ -6,6 +6,10 @@
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/fav/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/fav/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/fav/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('images/fav/site.webmanifest') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -17,6 +21,7 @@
             </button>
             <a class="navbar-brand" href="{{ path('index') }}">patrickeinatz<span class="navbar-brand-thin">.com</span></a>
 
+<<<<<<< HEAD
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -36,6 +41,23 @@
                 </form>
                 -->
             </div>
+=======
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('data') }}">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('archive') }}">Archive</a>
+                </li>
+            </ul>
+            <!--
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            -->
+>>>>>>> 3c7671ce27c75da212833fe6f719f77887a64252
         </div>
     </nav>
     <div class="jumbotron">
