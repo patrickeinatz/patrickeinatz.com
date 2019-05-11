@@ -22,7 +22,7 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="{{ path('index') }}">patrickeinatz<span class="navbar-brand-thin">.com</span></a>
+            <a class="navbar-brand" href="{{ path('index') }}"><img src="{{ asset('images/ocotLog_squared.svg') }}" height="40" style="margin: -14px 0px -10px -9px;" alt=""><span> patrickeinatz<span class="navbar-brand-thin">.com</span></a>
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -57,10 +57,12 @@
         {% block container %}{% endblock %}
         {% block javascripts %}{% endblock %}
 
+        {% block footer %}
     <hr>
     <footer>
         <p>&copy; Patrick Einatz 2019</p>
     </footer>
+        {% endblock %}
     </div><!-- Container End -->
     <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
     <script src="{{ asset('js/tether.min.js') }}"></script>

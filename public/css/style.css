@@ -94,3 +94,24 @@ li.breadcrumb-item.active{
 li.breadcrumb-item.active > a{
     color: #ffffff!important;
 }
+
+.login-button{
+    width: 100%; 
+    background-color: #1d1e1f;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Helvetica Neue Light";
+    border: #ffffff solid 1px;
+}
+.login-button:hover{
+    background-color: #424649;
+}
+
+.login-form-input{
+    font-family: "Helvetica Neue Light";
+    font-size: 20px;
+    text-align: center;
+}
+.login-form-input::placeholder{
+    color: #ddd;
+}
