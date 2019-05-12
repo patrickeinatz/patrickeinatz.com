@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "guzzlehttp/psr7": "^1.5",
+        "knplabs/knp-time-bundle": "^1.9",
         "nexylan/slack-bundle": "^2.1",
         "php-http/curl-client": "^2.0",
         "php-http/guzzle6-adapter": "^2.0",
