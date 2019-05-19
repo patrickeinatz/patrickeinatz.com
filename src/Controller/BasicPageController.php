@@ -2,18 +2,25 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleRepository;
+use App\Services\SlackClient;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BasicPageController extends AbstractController
 {
+
     /**
      * @Route("/", name="index")
      */
-    public function index()
+    public function index(ArticleRepository $repository)
     {
+
+        $articles = $repository->findAllPublishedOrderByNewest();
+
         return $this->render('basic_page/index.html.twig', [
-            'title' => 'Index'
+            'title' => "Index",
+            'articles' => $articles
         ]);
     }
 
@@ -28,12 +35,15 @@ class BasicPageController extends AbstractController
     }
 
     /**
-     * @Route("/whosyourpaddy", name="whosyourpaddy")
+     * @Route("/archive", name="archive")
      */
-    public function whosyourpaddy()
+    public function archive(SlackClient $slackClient)
     {
-        return $this->render('basic_page/whosyourpaddy.html.twig', [
-            'title' => "Who's your Paddy?"
+        $slackClient->sendNotification('patrickeinatz.com','Jemand sieht sich das Archive an!');
+
+        return $this->render('basic_page/archive.html.twig', [
+            'title' => "Archive"
         ]);
     }
+
 }

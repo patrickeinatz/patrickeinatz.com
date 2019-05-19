@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+{% block jumbotron %}
+    <h1>{{ article.title }}</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="{{ path('index') }}">~</a></li>
+        <li class="breadcrumb-item active"><a href="{{ path('index') }}">news</a></li>
+        <li class="breadcrumb-item">{{ breadcrumb }}_</li>
+    </ol>
+{% endblock %}
+{% block container %}
+    <div class="row">
+        <div class="col-md-12">
+            <h3>{{ article.title }}</h3>
+            <p><small>published by {{ article.author }} - {{ article.publishedAt|ago}}</small></p>
+            <a href="{{ path('news_toggleLikes', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
+            <p>
+                {{ article.content|cached_markdown }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
