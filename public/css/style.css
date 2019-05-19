@@ -115,3 +115,7 @@ li.breadcrumb-item.active > a{
 .login-form-input::placeholder{
     color: #ddd;
 }
+
+.card{
+    margin-bottom: 35px!important;
+}

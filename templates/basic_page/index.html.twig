@@ -9,6 +9,18 @@
     </ol>
 {% endblock %}
 {% block container %}
-    {{ content|raw }}
-    try <a href="/news/how-bacon-became-the-ruler227">How Bacon became the Ruler of the world</a>
+    <div class="row">
+    {% for article in articles %}
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset(article.imagePath) }}" alt="Card image cap">
+                <div class="card-block">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="{{ article.articlePath }}" class="btn btn-sm btn-secondary">read more</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}

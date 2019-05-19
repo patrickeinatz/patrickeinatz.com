@@ -41,6 +41,16 @@ class Article
      */
     private $publishedAt;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $likes = 0;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageFilename;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,5 +114,39 @@ class Article
         $this->publishedAt = $publishedAt;
 
         return $this;
+    }
+
+    public function getLikes(): ?int
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(int $likes): self
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+
+    public function getImageFilename(): ?string
+    {
+        return $this->imageFilename;
+    }
+
+    public function setImageFilename(?string $imageFilename): self
+    {
+        $this->imageFilename = $imageFilename;
+
+        return $this;
+    }
+
+    public function getImagePath()
+    {
+        return 'images/'.$this->getImageFilename();
+    }
+
+    public function getArticlePath()
+    {
+        return '/news/'.$this->getSlug();
     }
 }

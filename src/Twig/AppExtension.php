@@ -3,21 +3,20 @@
 namespace App\Twig;
 
 use App\Services\MarkdownHandler;
+use Psr\Container\ContainerInterface;
+use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class AppExtension extends AbstractExtension
+class AppExtension extends AbstractExtension implements ServiceSubscriberInterface
 {
 
-    /**
-     * @var MarkdownHandler
-     */
-    private $markdownHandler;
+    private $container;
 
-    public function __construct(MarkdownHandler $markdownHandler)
+    public function __construct(ContainerInterface $container)
     {
 
-        $this->markdownHandler = $markdownHandler;
+        $this->container = $container;
     }
 
     public function getFilters(): array
@@ -26,12 +25,23 @@ class AppExtension extends AbstractExtension
             // If your filter generates SAFE HTML, you should add a third
             // parameter: ['is_safe' => ['html']]
             // Reference: https://twig.symfony.com/doc/2.x/advanced.html#automatic-escaping
-            new TwigFilter('cached_markdown', [$this, 'processMarkdown'], ['is_safe' => ['html']]), //['is_safe' => ['html']] prevents escaping
+            new TwigFilter('cached_markdown', [$this, 'processMarkdown'], ['is_safe' => ['html']]),
         ];
     }
 
     public function processMarkdown($value)
     {
-        return $this->markdownHandler->parse($value);
+        return $this->container
+            ->get(MarkdownHandler::class)
+            ->parse($value);
     }
+
+    public static function getSubscribedServices()
+    {
+        return [
+            MarkdownHandler::class
+        ];
+    }
+
+
 }

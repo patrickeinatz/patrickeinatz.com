@@ -29,6 +29,8 @@ EOF;
             ->setSlug('how-bacon-became-the-ruler'.rand(100, 999)) //random for testing
             ->setContent($content)
             ->setAuthor(1)
+            ->setLikes(rand(5,100))
+            ->setImageFilename('example.svg')
             ->setPublishedAt(new \DateTime(sprintf('-%d days', rand(1,100)))); //random for testing
 
         $em->persist($article);

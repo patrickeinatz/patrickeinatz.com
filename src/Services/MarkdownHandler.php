@@ -11,13 +11,9 @@ class MarkdownHandler{
     private $markdown;
 
     private $cache;
-    /**
-     * @var LoggerInterface
-     */
+
     private $logger;
-    /**
-     * @var bool
-     */
+
     private $isDebug;
 
     public function __construct(MarkdownParserInterface $markdown, AdapterInterface $cache, LoggerInterface $markdownLogger, bool $isDebug)
