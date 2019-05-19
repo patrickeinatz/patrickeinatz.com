@@ -45,4 +45,5 @@ class BasicPageController extends AbstractController
             'title' => "Archive"
         ]);
     }
+
 }

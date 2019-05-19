@@ -13,7 +13,8 @@
     <div class="row">
         <div class="col-md-12">
             <h3>{{ article.title }}</h3>
-            <p><small>published by {{ article.author }} - {{ article.publishedAt|ago}} - <i class="fab fa-hotjar"></i> {{ article.likes }}</small></p>
+            <p><small>published by {{ article.author }} - {{ article.publishedAt|ago}}</small></p>
+            <a href="{{ path('news_toggleLikes', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
             <p>
                 {{ article.content|cached_markdown }}
             </p>

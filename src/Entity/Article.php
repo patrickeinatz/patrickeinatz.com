@@ -149,4 +149,9 @@ class Article
     {
         return '/news/'.$this->getSlug();
     }
+
+    public function incrementLikes():self
+    {
+        $this->likes = $this->likes + 1;
+    }
 }

@@ -119,3 +119,23 @@ li.breadcrumb-item.active > a{
 .card{
     margin-bottom: 35px!important;
 }
+
+a.cold{
+    text-decoration: none;
+    color: #cccccc;
+}
+
+a.hot{
+    text-decoration: none;
+    color: #ff0000;
+}
+
+a.cold:hover{
+    text-decoration: none;
+    color: #000000;
+}
+
+a.hot:hover{
+    text-decoration: none;
+    color: #d58512;
+}
