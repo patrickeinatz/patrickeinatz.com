@@ -116,10 +116,6 @@ li.breadcrumb-item.active > a{
     color: #ddd;
 }
 
-.card{
-    margin-bottom: 35px!important;
-}
-
 a.cold{
     text-decoration: none;
     color: #cccccc;
@@ -138,4 +134,33 @@ a.cold:hover{
 a.hot:hover{
     text-decoration: none;
     color: #d58512;
+}
+
+a.news_even{
+    margin-top: 50px;
+}
+
+a.news_preview{
+    color: rgb(29, 30, 31);
+    border: none;
+}
+
+a.news_preview:hover{
+    text-decoration: none;
+    background-color: rgba(29, 30, 31, 0.1);
+}
+
+.news_details{
+    display: block;
+    margin-top: -10px;
+}
+
+.badge-detail{
+    font-size: 12px;
+    padding: 5px!important;
+    background-color: #028e8a;
+}
+
+.card-text{
+    margin-top: -10px;
 }
