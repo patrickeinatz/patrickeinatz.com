@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class ArticleFixtures extends BaseFixtures
@@ -20,7 +21,7 @@ class ArticleFixtures extends BaseFixtures
 
     protected function loadData(ObjectManager $manager)
     {
-        $this->createMany(Article::class, 10, function(Article $article, $count)
+        $this->createMany(Article::class, 10, function(Article $article, $count) use ($manager)
         {
             $content = <<<EOF
 Lorem ipsum **dolor** sit amet, **consetetur sadipscing** elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
@@ -38,6 +39,19 @@ EOF;
                 {
                     $article->setPublishedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
                 }
+
+            $comment1 = new Comment();
+            $comment1->setAuthorName('Some Asshole Dude');
+            $comment1->setContent('Uff, this is so 1984..., come up with something new some times! #lame');
+            $comment1->setArticle($article);
+            $manager->persist($comment1);
+
+            $comment2 = new Comment();
+            $comment2->setAuthorName('Another Dumbfuck');
+            $comment2->setContent('yeah, totally, go de-install internet #noob');
+            $comment2->setArticle($article);
+            $manager->persist($comment2);
+
         });
 
         $manager->flush();

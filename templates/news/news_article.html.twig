@@ -24,6 +24,13 @@
         </div>
         <div class="col-md-8">
             {{ article.content|cached_markdown }}
+            <hr>
+            {% for comment in article.comments %}
+                <p>
+                    <span><b>{{ comment.authorName }}</b> <small>( {{ comment.createdAt|ago }} )</small></span><br>
+                    <span>{{ comment.content }}</span>
+                </p>
+            {% endfor %}
         </div>
         <div class="col-md-2"></div>
     </div>

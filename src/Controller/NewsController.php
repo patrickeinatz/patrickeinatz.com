@@ -17,7 +17,7 @@ class NewsController extends AbstractController
     {
         return $this->render('news/news_article.html.twig', [
             'breadcrumb' => str_replace('-','_', $article->getSlug()),
-            'article' => $article
+            'article' => $article,
         ]);
     }
 
@@ -26,6 +26,7 @@ class NewsController extends AbstractController
      */
     public function toggleArticleLikes(Article $article, EntityManagerInterface $em)
     {
+
         $article->incrementLikes();
         $em->flush();
 

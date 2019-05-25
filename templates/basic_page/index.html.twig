@@ -20,7 +20,12 @@
                         <p class="card-text">
                             {{ article.content|excerpt }}
                         </p>
-                        <div class="news_details"><span class="badge badge-detail"> _user({{ article.author }})</span> <span class="badge badge-detail"> {{ article.publishedAt|ago }}</span> <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span></div>
+                        <div class="news_details">
+                            <span class="badge badge-detail"> _user({{ article.author }})</span>
+                            <span class="badge badge-detail"> {{ article.publishedAt|ago }}</span>
+                            <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
+                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.comments|length }}</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -32,7 +37,12 @@
                         <p class="card-text">
                             {{ article.content|excerpt }}
                         </p>
-                        <div class="news_details"><span class="badge badge-detail"> _user({{ article.author }})</span> <span class="badge badge-detail"> {{ article.publishedAt|ago }}</span> <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span></div>
+                        <div class="news_details">
+                            <span class="badge badge-detail"> _user({{ article.author }})</span>
+                            <span class="badge badge-detail"> {{ article.publishedAt|ago }}</span>
+                            <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
+                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.comments|length }}</span>
+                        </div>
                     </div>
                 </a>
             </div>
