@@ -40,17 +40,6 @@ EOF;
                     $article->setPublishedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
                 }
 
-            $comment1 = new Comment();
-            $comment1->setAuthorName('Some Asshole Dude');
-            $comment1->setContent('Uff, this is so 1984..., come up with something new some times! #lame');
-            $comment1->setArticle($article);
-            $manager->persist($comment1);
-
-            $comment2 = new Comment();
-            $comment2->setAuthorName('Another Dumbfuck');
-            $comment2->setContent('yeah, totally, go de-install internet #noob');
-            $comment2->setArticle($article);
-            $manager->persist($comment2);
 
         });
 

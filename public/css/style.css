@@ -28,6 +28,7 @@
 body {
     padding-top: 2rem;
     font-family: "Helvetica Neue Light";
+    color: #1d1e1f;
 }
 
 h1{
@@ -164,7 +165,8 @@ a.news_preview:hover{
 .badge-detail{
     font-size: 12px;
     padding: 5px!important;
-    background-color: #028e8a;
+    /* background-color: #028e8a; */ /* GREENISH */
+    background-color: #1d1e1f; /* DARK */
 }
 
 .card-text{
