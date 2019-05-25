@@ -4,21 +4,26 @@
 {% block jumbotron %}
     <h1>{{ article.title }}</h1>
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active"><a href="{{ path('index') }}">~</a></li>
-        <li class="breadcrumb-item active"><a href="{{ path('index') }}">news</a></li>
-        <li class="breadcrumb-item">{{ breadcrumb }}_</li>
+        <li class="breadcrumb-item"><a href="{{ path('index') }}">~</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('index') }}">news</a></li>
+        <li class="breadcrumb-item active">{{ breadcrumb }}_</li>
     </ol>
 {% endblock %}
 {% block container %}
     <div class="row">
-        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <div class="news_article_info">
+                <p>
+                    <small>{{ article.publishedAt|ago}}</small><br>
+                    <small>by {{ article.author }}</small><br>
+                </p>
+                <p>
+                    <a href="{{ path('news_toggleLikes', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
+                </p>
+            </div>
+        </div>
         <div class="col-md-8">
-            <h3>{{ article.title }}</h3>
-            <p><small>published by {{ article.author }} - {{ article.publishedAt|ago}}</small></p>
-            <a href="{{ path('news_toggleLikes', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
-            <p>
-                {{ article.content|cached_markdown }}
-            </p>
+            {{ article.content|cached_markdown }}
         </div>
         <div class="col-md-2"></div>
     </div>
