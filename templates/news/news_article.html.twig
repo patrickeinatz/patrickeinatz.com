@@ -18,14 +18,30 @@
             </div>
         </div>
         <div class="col-md-8">
-            {{ article.content|cached_markdown }}
-            <hr>
-            {% for comment in article.comments %}
+            <div class="row">
+                <div class="col-md-12">
+                    {{ article.content|cached_markdown }}
+
+                    <h5>{{ article.nonDeletedComments|length }} Comments</h5>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                {% for comment in article.nonDeletedComments %}
                 <p>
-                    <span><b>{{ comment.authorName }}</b> <small>( {{ comment.createdAt|ago }} )</small></span><br>
+                <div class="col-md-1">
+                    IMG
+                </div>
+                <div class="col-md-11">
+                    <span class="bolder">{{ comment.authorName }}</span> ~ <span><small> {{ comment.createdAt|ago }} </small></span><br>
+                    {% if comment.isDeleted  %}
+                        <i class="far fa-times-circle" style="color:red;"></i>
+                    {% endif %}
                     <span>{{ comment.content }}</span>
-                </p>
+                    </p>
+                </div>
             {% endfor %}
+            </div>
         </div>
         <div class="col-md-2"></div>
     </div>

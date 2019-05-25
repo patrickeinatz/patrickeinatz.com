@@ -40,6 +40,19 @@ h2, h3, h4 {
     font-family: "Helvetica Neue Heavy";
 }
 
+.bolder{
+    font-family: "Helvetica Neue Heavy";
+}
+
+a{
+    color: #028e8a;
+}
+
+a:hover{
+    color: #033d3b;
+    text-decoration: none;
+}
+
 .nav-item {
     font-family: "Helvetica Neue Medium";
     font-size: 14px;
@@ -57,7 +70,7 @@ h2, h3, h4 {
 }
 
 .bg-inverse{
-    background-color: #0D0D0D!important;
+    background-color: #1d1e1f!important;
 }
 
 .jumbotron{
@@ -129,7 +142,7 @@ a.hot{
 
 a.cold:hover{
     text-decoration: none;
-    color: #000000;
+    color: #1d1e1f;
 }
 
 a.hot:hover{
