@@ -1,19 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block jumbotron %}
-    <div class="row">
-        <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <h1>{{ title }}</h1>
-            </div>
-        <div class="col-md-2"></div>
-    </div>
-{% endblock %}
-{% block container %}
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+
+{% block jumbotron_sm %}<h1>{{ title }}</h1>{% endblock %}
+
+{% block content_sm_center %}
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
                 <div class="d-flex w-100 justify-content-between">
@@ -40,7 +31,4 @@
                 <small class="text-muted">Donec id elit non mi porta.</small>
             </a>
         </div>
-    </div>
-    <div class="col-md-2"></div>
-</div>
 {% endblock %}

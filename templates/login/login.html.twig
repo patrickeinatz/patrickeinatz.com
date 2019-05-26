@@ -1,36 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
-        {% block jumbotron %}
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <h1>{{ title }}</h1>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-        {% endblock %}
-{% block container %}
+        {% block jumbotron_sm %}<h1>{{ title }}</h1>{% endblock %}
+{% block content_sm_center %}
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-                    <form action="" autocomplete="off" class="login-form">
-                        <div class="form-group">
-                            <label for="username"><small>Username</small></label>
-                            <input type="text" class="login-form-input form-control" name="username" placeholder="Enter username">
-                        </div>
-                        <div class="form-group">
-                            <label for="password"><small>Password</small></label>
-                            <input type="password" class="login-form-input form-control" name="password" placeholder="Enter password">
-                        </div>
-                        <div class="form-group-centered">
-                            <br>
-                            <button type="button" id="sendlogin" class="login-button btn">login</button>
-                        </div>
-                    </form>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form action="" autocomplete="off" class="login-form">
+                <div class="form-group">
+                    <label for="username"><small>Username</small></label>
+                    <input type="text" class="login-form-input form-control" name="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password"><small>Password</small></label>
+                    <input type="password" class="login-form-input form-control" name="password" placeholder="Enter password">
+                </div>
+                <div class="form-group-centered">
+                    <br>
+                    <button type="button" id="sendlogin" class="login-button btn">login</button>
+                </div>
+            </form>
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
     </div>
-{% endblock %}
-{% block footer %}
 {% endblock %}

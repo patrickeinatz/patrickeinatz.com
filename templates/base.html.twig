@@ -50,25 +50,67 @@
     </nav>
     <div class="jumbotron">
         <div class="container">
-            {% block jumbotron %}{% endblock %}
+            <div class="row">
+                <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        {% block jumbotron_sm %}{% endblock %}
+                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    {% block jumbotron_md %}{% endblock %}
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {% block jumbotron_lg %}{% endblock %}
+                </div>
+            </div>
         </div>
     </div>
-
+    <!-- container -->
     <div class="container">
-        {% block container %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-
-        {% block footer %}
-    <hr>
-    <footer>
-        <p class="copyright">&copy; Patrick Einatz 2019</p>
-    </footer>
-        {% endblock %}
-    </div><!-- Container End -->
+        <div class="row">
+            <div class="col-md-2">{% block content_sm_left %}{% endblock %}</div>
+            <div class="col-md-8">
+                {% block content_sm_center %}{% endblock %}
+            </div>
+            <div class="col-md-2">{% block content_sm_right %}{% endblock %}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    {% block content_md_center %}{% endblock %}
+                </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% block content_lg_center %}{% endblock %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <hr>
+                <footer>
+                    <small>
+                    <p class="copyright">&copy; Patrick Einatz {{ "now"|date("Y") }}</p>
+                    </small>
+                </footer>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <!-- /container -->
     <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
     <script src="{{ asset('js/tether.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
     <script src="{{ asset('js/news_article.js') }}"></script>
+    {% block javascripts %}{% endblock %}
     </body>
 </html>
