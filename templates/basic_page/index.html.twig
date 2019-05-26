@@ -1,48 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block jumbotron %}
-    <h1>{{ title }}</h1>
-{% endblock %}
+    {% block jumbotron %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+    {% endblock %}
 {% block container %}
-    <div class="row">
-    {% for key, article in articles %}
-        {% set oddOrEven = cycle(['odd', 'even'], loop.index0) %}
-        {% if oddOrEven == 'odd' %}
-            <div class="col-sm-6">
-                <a href="{{ article.articlePath }}" class="card news_preview news_odd">
-                    <div class="card-block">
-                        <h4 class="card-title">{{ article.title }}</h4>
-                        <p class="card-text">
-                            {{ article.content|excerpt }}
-                        </p>
-                        <div class="news_details">
-                            <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
-                            <span class="badge badge-detail"><i class="far fa-calendar-check"></i> {{ article.publishedAt|ago }}</span>
-                            <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
-                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
-                        </div>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="timeline timeline-centered">
+            {% for article in articles %}
+            <li class="timeline-item">
+                    <div class="timeline-info">
+                        <span>{{ article.publishedAt|ago }}</span>
                     </div>
-                </a>
-            </div>
-        {% else %}
-            <div class="col-sm-6">
-                <a href="{{ article.articlePath }}" class="card news_preview news_even">
-                    <div class="card-block">
-                        <h4 class="card-title">{{ article.title }}</h4>
-                        <p class="card-text">
-                            {{ article.content|excerpt }}
-                        </p>
-                        <div class="news_details">
-                            <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
-                            <span class="badge badge-detail"><i class="far fa-calendar-check"></i> {{ article.publishedAt|ago }}</span>
-                            <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
-                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
-                        </div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <a href="{{ article.articlePath }}" class="card news_block">
+                            <div class="card-block">
+                                <h4 class="timeline-title">{{ article.title }}</h4>
+                                <p>
+                                    {{ article.content|excerpt }}
+                                </p>
+                                <div class="news_details">
+                                    <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
+                                    <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
+                                    <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-        {% endif %}
-    {% endfor %}
+            </li>
+        {% endfor %}
+        </ul>
     </div>
+</div>
 {% endblock %}
