@@ -40,9 +40,6 @@
                 </div>
                 <div class="col-md-11">
                     <span class="bolder">{{ comment.authorName }}</span> ~ <span><small> {{ comment.createdAt|ago }} </small></span><br>
-                    {% if comment.isDeleted  %}
-                        <i class="far fa-times-circle" style="color:red;"></i>
-                    {% endif %}
                     <span>{{ comment.content }}</span>
                     </p>
                 </div>

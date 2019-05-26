@@ -17,10 +17,10 @@
                             {{ article.content|excerpt }}
                         </p>
                         <div class="news_details">
-                            <span class="badge badge-detail"> _user({{ article.author }})</span>
-                            <span class="badge badge-detail"> {{ article.publishedAt|ago }}</span>
+                            <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
+                            <span class="badge badge-detail"><i class="far fa-calendar-check"></i> {{ article.publishedAt|ago }}</span>
                             <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
-                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.comments|length }}</span>
+                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
                         </div>
                     </div>
                 </a>
@@ -34,10 +34,10 @@
                             {{ article.content|excerpt }}
                         </p>
                         <div class="news_details">
-                            <span class="badge badge-detail"> _user({{ article.author }})</span>
-                            <span class="badge badge-detail"> {{ article.publishedAt|ago }}</span>
+                            <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
+                            <span class="badge badge-detail"><i class="far fa-calendar-check"></i> {{ article.publishedAt|ago }}</span>
                             <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
-                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.comments|length }}</span>
+                            <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
                         </div>
                     </div>
                 </a>
