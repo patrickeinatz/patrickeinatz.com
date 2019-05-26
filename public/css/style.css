@@ -116,6 +116,7 @@ li.breadcrumb-item.active > a{
     font-size: 20px;
     font-family: "Helvetica Neue Light";
     border: none;
+    border-radius: 0px;
 }
 .login-button:hover{
     background-color: #424649;
@@ -124,6 +125,7 @@ li.breadcrumb-item.active > a{
 .login-form-input{
     font-family: "Helvetica Neue Light";
     font-size: 20px;
+    border-radius: 0px;
     text-align: center;
 }
 .login-form-input::placeholder{

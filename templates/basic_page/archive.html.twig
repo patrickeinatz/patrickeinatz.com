@@ -2,15 +2,18 @@
 
 {% block title %}{{ title }}{% endblock %}
 {% block jumbotron %}
-    <h1>{{ title }}</h1>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ path('index') }}">~</a></li>
-        <li class="breadcrumb-item active">{{ title }}_</li>
-    </ol>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>{{ title }}</h1>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 {% endblock %}
 {% block container %}
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-2"></div>
+        <div class="col-sm-4">
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
             sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
             At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
@@ -23,7 +26,7 @@
             consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
                 vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
@@ -34,5 +37,6 @@
                 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
             </p>
         </div>
+        <div class="col-md-2"></div>
     </div>
 {% endblock %}
