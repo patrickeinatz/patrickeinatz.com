@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block jumbotron_lg %}<h1>{{ title }}</h1>{% endblock %}
+
+{% block content_lg_center %}
+
+        <form>
+                <div class="input-group mb-3">
+                        <input type="text"
+                               name="q"
+                               class="form-control"
+                               placeholder="Search..."
+                               value="{{ app.request.query.get('q') }}">
+                        <div class="input-group-append">
+                                <button type="submit"
+                                        class="btn btn-outline-secondary">
+                                        <span class="fa fa-search"></span>
+                                </button>
+                        </div>
+                </div>
+        </form>
+        <span>RESULTS: {{ pagination.getTotalItemCount }}</span>
+        <table class="table table-striped">
+                <thead>
+                <tr>
+                        <th>Article</th>
+                        <th>Author</th>
+                        <th>Comment</th>
+                        <th>Created At</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for comment in pagination %}
+                        <tr>
+                                <td><a href="{{ path('news', {slug: comment.article.slug}) }}">{{ comment.article.title }}</a></td>
+                                <td>{{ comment.authorName }}</td>
+                                <td style="width: 20%">{{ comment.content|truncate(30,true,'...') }}</td>
+                                <td>{{ comment.createdAt|ago }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                                <td colspan="4" class="text-center">
+                                        No comments found!
+                                </td>
+                        </tr>
+
+                {% endfor %}
+                </tbody>
+        </table>
+        <div class="text-center">
+                {{ knp_pagination_render(pagination) }}
+        </div>
+{% endblock %}

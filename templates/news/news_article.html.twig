@@ -1,23 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ article.title }}{% endblock %}
-{% block jumbotron %}
-    <h1>{{ article.title }}</h1>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active"><a href="{{ path('index') }}">~</a></li>
-        <li class="breadcrumb-item active"><a href="{{ path('index') }}">news</a></li>
-        <li class="breadcrumb-item">{{ breadcrumb }}_</li>
-    </ol>
-{% endblock %}
-{% block container %}
-    <div class="row">
-        <div class="col-md-12">
-            <h3>{{ article.title }}</h3>
-            <p><small>published by {{ article.author }} - {{ article.publishedAt|ago}}</small></p>
+
+    {% block jumbotron_sm %}<h1>{{ article.title }}</h1>{% endblock %}
+
+{% block content_sm_left %}
+    <div class="news_article_info">
+        <p>
+            <small>{{ article.publishedAt|ago}}</small><br>
+            <small>by {{ article.author }}</small><br><br>
+            <small><i class="fas fa-tags"></i>&nbsp;
+                {% for tag in article.tags %}
+                    {{ tag.name }},&nbsp;
+                {% endfor %}
+            </small><br>
+        </p>
+        <p>
             <a href="{{ path('news_toggleLikes', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
-            <p>
-                {{ article.content|cached_markdown }}
-            </p>
-        </div>
+        </p>
+    </div>
+{% endblock %}
+
+{% block content_sm_center %}
+
+    {{ article.content|cached_markdown }}
+
+    <h5>{{ article.nonDeletedComments|length }} Comments</h5>
+    <hr>
+    <div class="row">
+        {% for comment in article.nonDeletedComments %}
+        <p>
+            <div class="col-md-1">
+                IMG
+            </div>
+            <div class="col-md-11">
+                <span class="bolder">{{ comment.authorName }}</span> ~ <span><small> {{ comment.createdAt|ago }} </small></span><br>
+                <span>{{ comment.content }}</span>
+            </div>
+        </p>
+        {% endfor %}
     </div>
 {% endblock %}

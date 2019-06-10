@@ -38,6 +38,7 @@ class ComposerStaticInit527319451a445b4bfa33b9967b651ca6
         ),
         'T' => 
         array (
+            'Twig\\Extensions\\' => 16,
             'Twig\\' => 5,
         ),
         'S' => 
@@ -125,6 +126,7 @@ class ComposerStaticInit527319451a445b4bfa33b9967b651ca6
         ),
         'K' => 
         array (
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
             'Knp\\Bundle\\MarkdownBundle\\' => 26,
         ),
         'H' => 
@@ -203,6 +205,10 @@ class ComposerStaticInit527319451a445b4bfa33b9967b651ca6
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Twig\\Extensions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/extensions/src',
         ),
         'Twig\\' => 
         array (
@@ -493,6 +499,10 @@ class ComposerStaticInit527319451a445b4bfa33b9967b651ca6
         array (
             0 => __DIR__ . '/..' . '/michelf/php-markdown/Michelf',
         ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Knp\\Bundle\\MarkdownBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-markdown-bundle',
@@ -647,6 +657,10 @@ class ComposerStaticInit527319451a445b4bfa33b9967b651ca6
     public static $prefixesPsr0 = array (
         'T' => 
         array (
+            'Twig_Extensions_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/extensions/lib',
+            ),
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
@@ -661,6 +675,10 @@ class ComposerStaticInit527319451a445b4bfa33b9967b651ca6
         ),
         'K' => 
         array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
+            ),
             'Knp\\Bundle\\TimeBundle' => 
             array (
                 0 => __DIR__ . '/..' . '/knplabs/knp-time-bundle',

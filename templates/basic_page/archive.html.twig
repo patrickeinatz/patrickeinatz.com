@@ -1,14 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block jumbotron %}
-    <h1>{{ title }}</h1>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ path('index') }}">~</a></li>
-        <li class="breadcrumb-item active">{{ title }}_</li>
-    </ol>
-{% endblock %}
-{% block container %}
+
+{% block jumbotron %}<h1>{{ title }}</h1>{% endblock %}
+
+{% block content_sm_center %}
     <div class="row">
         <div class="col-sm-6">
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,

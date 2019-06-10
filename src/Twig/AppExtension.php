@@ -42,6 +42,4 @@ class AppExtension extends AbstractExtension implements ServiceSubscriberInterfa
             MarkdownHandler::class
         ];
     }
-
-
 }

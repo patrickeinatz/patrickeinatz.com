@@ -1,26 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block jumbotron %}
-    <h1>{{ title }}</h1>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active"><a href="{{ path('index') }}">~</a></li>
-        <li class="breadcrumb-item"> </li>
-    </ol>
-{% endblock %}
-{% block container %}
-    <div class="row">
-    {% for article in articles %}
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="{{ asset(article.imagePath) }}" alt="Card image cap">
-                <div class="card-block">
-                    <h5 class="card-title">{{ article.title }}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="{{ article.articlePath }}" class="btn btn-sm btn-secondary">read more</a>
+
+{% block jumbotron_md %}<h1>{{ title }}</h1>{% endblock %}
+
+{% block content_md_center %}
+    <ul class="timeline timeline-centered">
+        {% for article in articles %}
+            <li class="timeline-item">
+                <div class="timeline-info">
+                    <span>{{ article.publishedAt|ago }}</span>
                 </div>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <a href="{{ article.articlePath }}" class="card news_block">
+                        <div class="card-block">
+                            <h4 class="timeline-title">{{ article.title }}</h4>
+                            <p>
+                                {{ article.content|truncate(140,true,'...')|cached_markdown }}
+                            </p>
+                            <div class="news_details">
+                                {% for tag in article.tags %}
+                                <span class="badge badge-detail"><i class="fas fa-tags"></i>
+                                        {{ tag.name }}
+                                </span>
+                                {% endfor %}
+                                <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
+                                <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
+                                <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

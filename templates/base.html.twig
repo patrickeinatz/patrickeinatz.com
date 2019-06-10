@@ -8,6 +8,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/fav/apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/fav/favicon-32x32.png') }}">
@@ -49,25 +50,57 @@
     </nav>
     <div class="jumbotron">
         <div class="container">
-            {% block jumbotron %}{% endblock %}
+            <div class="row">
+                <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        {% block jumbotron_sm %}{% endblock %}
+                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    {% block jumbotron_md %}{% endblock %}
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {% block jumbotron_lg %}{% endblock %}
+                </div>
+            </div>
         </div>
     </div>
-
+    <!-- container -->
     <div class="container">
-        {% block container %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-
-        {% block footer %}
-    <hr>
-    <footer>
-        <p>&copy; Patrick Einatz 2019</p>
-    </footer>
-        {% endblock %}
-    </div><!-- Container End -->
+        <div class="row">
+            <div class="col-md-2">{% block content_sm_left %}{% endblock %}</div>
+            <div class="col-md-8">
+                {% block content_sm_center %}{% endblock %}
+            </div>
+            <div class="col-md-2">{% block content_sm_right %}{% endblock %}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    {% block content_md_center %}{% endblock %}
+                </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% block content_lg_center %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+    <!-- /container -->
     <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
     <script src="{{ asset('js/tether.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
     <script src="{{ asset('js/news_article.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    {% block javascripts %}{% endblock %}
     </body>
 </html>
