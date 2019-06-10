@@ -21,6 +21,18 @@
                     is redirected to on success (more details below)
                     <input type="hidden" name="_target_path" value="/account" />
                 #}
+                <div class="form-group">
+                    <small>
+                        <label for="rememberme">
+                            <input type="checkbox" id="rememberme" name="_remember_me">
+                            <span class="login-form-checkbox-label">Remember me!</span>
+                        </label>
+                    </small>
+                </div>
+                <input type="hidden"
+                       name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
                 <div class="form-group-centered">
                     <button type="submit" id="sendlogin" class="login-button btn">login</button>
                 </div>

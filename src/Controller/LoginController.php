@@ -25,4 +25,13 @@ class LoginController extends AbstractController
             'error' => $error,
         ]);
     }
+
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    {
+        throw new \Exception('will be intercepted before getting here');
+    }
 }
