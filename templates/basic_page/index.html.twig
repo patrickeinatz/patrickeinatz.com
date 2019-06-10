@@ -17,7 +17,7 @@
                         <div class="card-block">
                             <h4 class="timeline-title">{{ article.title }}</h4>
                             <p>
-                                {{ article.content|excerpt }}
+                                {{ article.content|truncate(140,true,'...')|cached_markdown }}
                             </p>
                             <div class="news_details">
                                 <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
