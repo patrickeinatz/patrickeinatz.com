@@ -20,10 +20,12 @@
                                 {{ article.content|truncate(140,true,'...')}}
                             </p>
                             <div class="news_details">
-                                {% for tag in article.tags %}
-                                    <span class="badge badge-detail"><i class="fas fa-tags"></i> {{ tag.name }}</span>
-                                {% endfor %}
-                                <br>
+                                {% if article.tags.count > 0 %}
+                                    {% for tag in article.tags %}
+                                        <span class="badge badge-detail"><i class="fas fa-tags"></i> {{ tag.name }}</span>
+                                    {% endfor %}
+                                    <br>
+                                {% endif %}
                                 <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
                                 <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
                                 <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
