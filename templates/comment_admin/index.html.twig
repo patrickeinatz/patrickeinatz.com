@@ -5,6 +5,18 @@
 {% block jumbotron_lg %}<h1>{{ title }}</h1>{% endblock %}
 
 {% block content_lg_center %}
+
+        <form>
+                <div class="input-group mb-3">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <div class="input-group-append">
+                                <button type="submit" class="btn btn-outline-secondary">
+                                        <span class="fa fa-search"></span>
+                                </button>
+                        </div>
+                </div>
+        </form>
+        <span>RESULTS: {{ comments|length }}</span>
         <table class="table table-striped">
                 <thead>
                 <tr>
