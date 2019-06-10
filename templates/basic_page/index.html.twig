@@ -20,6 +20,7 @@
                                 {{ article.content|truncate(140,true,'...')|cached_markdown }}
                             </p>
                             <div class="news_details">
+                                <span class="badge badge-detail"><i class="fas fa-tags"></i> </span>
                                 <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
                                 <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
                                 <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
