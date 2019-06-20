@@ -26,7 +26,6 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 2rem;
     font-family: "Helvetica Neue Light";
     color: #1d1e1f;
     -webkit-font-smoothing: antialiased;
@@ -172,6 +171,7 @@ a.hot:hover{
 
 .badge-detail{
     font-size: 12px;
+    color: #ffffff;
     padding: 5px!important;
     /* background-color: #028e8a; */ /* GREENISH */
     background-color: #1d1e1f; /* DARK */
