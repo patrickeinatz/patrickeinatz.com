@@ -8,12 +8,15 @@
     <div class="news_article_info">
         <p>
             <small>{{ article.publishedAt|ago}}</small><br>
-            <small>by {{ article.author }}</small><br><br>
-            <small><i class="fas fa-tags"></i>&nbsp;
+            <small>by {{ article.author }}</small><br>
+            {% if article.tags.count > 0 %}
+            <br>
+            <small>
                 {% for tag in article.tags %}
-                    {{ tag.name }},&nbsp;
+                    <i class="fas fa-tags"></i>&nbsp;{{ tag.name }}<br>
                 {% endfor %}
-            </small><br>
+            </small>
+            {% endif %}
         </p>
         <p>
             <a href="{{ path('news_toggleLikes', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
