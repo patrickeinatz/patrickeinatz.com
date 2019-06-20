@@ -5,6 +5,7 @@ namespace App\Services;
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
+use Symfony\Component\Security\Core\Security;
 
 class MarkdownHandler{
 
@@ -16,18 +17,23 @@ class MarkdownHandler{
 
     private $isDebug;
 
-    public function __construct(MarkdownParserInterface $markdown, AdapterInterface $cache, LoggerInterface $markdownLogger, bool $isDebug)
+    private $security;
+
+    public function __construct(MarkdownParserInterface $markdown, AdapterInterface $cache, LoggerInterface $markdownLogger, bool $isDebug, Security $security)
     {
         $this->markdown = $markdown;
         $this->cache = $cache;
         $this->logger = $markdownLogger;
         $this->isDebug = $isDebug;
+        $this->security = $security;
     }
 
     public function parse($source)
     {
-        if(strpos($source,'Lorem ipsum') !== false){
-            $this->logger->info("TODO: edit example text");
+        if(strpos($source,'bacon') !== false){
+            $this->logger->info("TODO: edit example text", [
+                'user' => $this->security->getUser(),
+            ]);
         }
 
         if($this->isDebug)

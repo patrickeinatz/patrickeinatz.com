@@ -208,3 +208,26 @@ footer{
 .login-form-checkbox-label{
     font-size: 14px;
 }
+
+.inset {
+    width: 35px;
+    height: 35px;
+    margin-top: -1px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background-color: #dedede;
+    z-index: 999;
+}
+
+.inset img{
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+    display: inline-block;
+    position: relative;
+    z-index: 998;
+}
+
+.glyphicon{
+    color: #1d1e1f;
+}

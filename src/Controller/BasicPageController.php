@@ -19,7 +19,7 @@ class BasicPageController extends AbstractController
         $articles = $repository->findAllPublishedOrderByNewest();
 
         return $this->render('basic_page/index.html.twig', [
-            'title' => "Index",
+            'title' => 'Log',
             'articles' => $articles
         ]);
     }
@@ -42,7 +42,7 @@ class BasicPageController extends AbstractController
         $slackClient->sendNotification('patrickeinatz.com','Jemand sieht sich das Archive an!');
 
         return $this->render('basic_page/archive.html.twig', [
-            'title' => "Archive"
+            'title' => 'Archive'
         ]);
     }
 
