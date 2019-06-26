@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Article;
 use App\Entity\Comment;
 use App\Entity\Tag;
+use App\Entity\User;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -52,7 +53,7 @@ EOF
                 $article->setPublishedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
             }
 
-            $article->setAuthor($this->faker->randomNumber())
+            $article->setAuthor($this->getRandomReference('main_users'))
                 ->setLikes($this->faker->numberBetween(5,100))
                 ->setImageFilename($this->faker->randomElement(self::$articleImages));
 
@@ -70,6 +71,7 @@ EOF
     public function getDependencies()
     {
         return [
+            UserFixture::class,
             TagFixture::class,
         ];
     }
