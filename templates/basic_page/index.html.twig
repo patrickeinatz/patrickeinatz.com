@@ -26,7 +26,7 @@
                                     {% endfor %}
                                     <br>
                                 {% endif %}
-                                <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author }}</span>
+                                <span class="badge badge-detail"><i class="fas fa-user"></i> {{ article.author.firstName }}</span>
                                 <span class="badge badge-detail"><i class="fab fa-hotjar"></i> {{ article.likes }}</span>
                                 <span class="badge badge-detail"><i class="fas fa-comments"></i> {{ article.nonDeletedComments|length }}</span>
                             </div>

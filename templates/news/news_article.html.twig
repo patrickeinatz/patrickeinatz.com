@@ -8,7 +8,7 @@
     <div class="news_article_info">
         <p>
             <small>{{ article.publishedAt|ago}}</small><br>
-            <small>by {{ article.author }}</small><br>
+            <small>by {{ article.author.firstName }}</small><br>
             {% if article.tags.count > 0 %}
             <br>
             <small>

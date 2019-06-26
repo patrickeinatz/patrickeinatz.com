@@ -40,10 +40,6 @@ class Article
      */
     private $content;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $author;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -71,6 +67,12 @@ class Article
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="articles")
      */
     private $tags;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
 
     public function __construct()
     {
@@ -117,18 +119,6 @@ class Article
     public function setContent(?string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getAuthor(): ?int
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(int $author): self
-    {
-        $this->author = $author;
 
         return $this;
     }
@@ -249,6 +239,18 @@ class Article
         if ($this->tags->contains($tag)) {
             $this->tags->removeElement($tag);
         }
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
