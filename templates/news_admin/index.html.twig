@@ -5,7 +5,28 @@
 {% block jumbotron_sm %}<h1>{{ title }}</h1>{% endblock %}
 
 {% block content_sm_center %}
-
-        more stuff to come...!
-
+        <a href="{{ path('be_news_new') }}" class="btn btn-primary pull-right">
+                Create <span class="fa fa-plus-circle"></span>
+        </a>
+        <br><br>
+        <table class="table">
+                <thead>
+                <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Published?</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                        <tr>
+                                <td>{{ article.title }}</td>
+                                <td>{{ article.author.email }}</td>
+                                <td>
+                                        <span class="fa fa-{{ article.isPublished ? 'check' : 'times' }}"></span>
+                                </td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+        </table>
 {% endblock %}
