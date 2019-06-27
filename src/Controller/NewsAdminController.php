@@ -54,7 +54,7 @@ class NewsAdminController extends AbstractController
             return $this->redirectToRoute('be_news_manager');
         }
 
-        return $this->render('news_admin/new.tml.twig',[
+        return $this->render('news_admin/new.html.twig',[
             'title' => 'Create New News-Article',
             'articleForm' => $form->createView(),
         ]);

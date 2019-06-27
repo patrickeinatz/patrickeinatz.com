@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block jumbotron_sm %}<h1>{{ title }}</h1>{% endblock %}
+
+{% block content_sm_center %}
+    <a href="{{ path('be_activity_new') }}" class="btn btn-primary pull-right">
+        Add Record <span class="fa fa-plus-circle"></span>
+    </a>
+    <br><br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>User</th>
+            <th>Training</th>
+            <th>No Alcohol</th>
+            <th>No Candy</th>
+            <th>No Carbs</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for activity in activities %}
+            <tr>
+                <td>{{ activity.date.format('Y.m.d') }}</td>
+                <td>{{ activity.user.firstName }}</td>
+                <td>{{ activity.training }}</td>
+                <td>{% if activity.noAlcohol %}<i class="fas fa-check-circle"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
+                <td>{% if activity.noCandy %}<i class="fas fa-check-circle"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
+                <td>{% if  activity.noCarbs %}<i class="fas fa-check-circle"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
+                <td>{{ activity.comment }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
