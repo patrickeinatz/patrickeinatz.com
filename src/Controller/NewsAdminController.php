@@ -41,10 +41,13 @@ class NewsAdminController extends AbstractController
         $form = $this->createForm(ArticleFormType::class);
 
         $form->handleRequest($request);
+
+
         if($form->isSubmitted() && $form->isValid()){
 
             /** @var Article $article */
             $article = $form->getData();
+            $article->setAuthor($this->getUser());
 
             $em->persist($article);
             $em->flush();
@@ -73,11 +76,12 @@ class NewsAdminController extends AbstractController
 
             /** @var Article $article */
             $article = $form->getData();
+            $article->setAuthor($this->getUser());
 
             $em->persist($article);
             $em->flush();
 
-            $this->addFlash('success', 'Artilce Updated!');
+            $this->addFlash('success', 'Log-Entry Updated!');
 
             return $this->redirectToRoute('be_news_edit', [
                 'id' => $article->getId(),

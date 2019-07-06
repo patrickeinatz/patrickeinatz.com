@@ -40,8 +40,9 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      * @Groups("main")
+     * @Assert\NotBlank(message="Please pick a Username")
      */
     private $firstName;
 
@@ -305,4 +306,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }
