@@ -79,7 +79,7 @@ a:hover{
     border-radius: 0px!important;
 }
 
-.login-form{
+.form{
     /*border: 1px solid #ddd;*/
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
@@ -110,13 +110,20 @@ a:hover{
     text-align: center;
 }
 
-.login-form-input{
+.form-input{
     font-family: "Helvetica Neue Light";
+    margin-bottom: 15px;
     border-radius: 0px;
     border-color: #aaa;
 }
-.login-form-input::placeholder{
+.form-input::placeholder{
     color: #aaa;
+}
+
+/*CUSTOM CHECKBOX */
+.form-checkbox-label{
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
@@ -204,10 +211,6 @@ footer{
     height: 100px;
 }
 
-/*CUSTOM CHECKBOX */
-.login-form-checkbox-label{
-    font-size: 14px;
-}
 
 .inset {
     width: 35px;
