@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Activity;
-use App\Form\ActivityType;
+use App\Form\ActivityFormType;
 use App\Repository\ActivityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,10 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * Class ActivityController
+ * Class ActivityAdminController
  * @package App\Controller*
  */
-class ActivityController extends AbstractController
+class ActivityAdminController extends AbstractController
 {
     /**
      * @Route("/backend/activity", name="be_activity")
@@ -35,7 +35,7 @@ class ActivityController extends AbstractController
      */
     public function newActivity(EntityManagerInterface $em, Request $request)
     {
-        $form = $this->createForm(ActivityType::class);
+        $form = $this->createForm(ActivityFormType::class);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -51,7 +51,7 @@ class ActivityController extends AbstractController
             return $this->redirectToRoute('be_activity');
         }
 
-        return $this->render('activity/new_activity.html.twig', [
+        return $this->render('activity/new.html.twig', [
             'title' => 'New Activity Track',
             'activityForm' => $form->createView()
         ]);

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Form\ArticleFromType;
+use App\Form\ArticleFormType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +27,7 @@ class NewsAdminController extends AbstractController
         $articles = $articleRepository->findAll();
 
         return $this->render('news_admin/index.html.twig',[
-            'title' => 'News Manager',
+            'title' => 'Log Manager',
             'articles' => $articles,
         ]);
     }
@@ -38,7 +38,7 @@ class NewsAdminController extends AbstractController
      */
     public function new(EntityManagerInterface $em, Request $request)
     {
-        $form = $this->createForm(ArticleFromType::class);
+        $form = $this->createForm(ArticleFormType::class);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -49,23 +49,44 @@ class NewsAdminController extends AbstractController
             $em->persist($article);
             $em->flush();
 
-            $this->addFlash('success', 'Artilce Created!');
+            $this->addFlash('success', 'Log-Entry Created!');
 
             return $this->redirectToRoute('be_news_manager');
         }
 
         return $this->render('news_admin/new.html.twig',[
-            'title' => 'Create New News-Article',
+            'title' => 'Create new Log-Entry',
             'articleForm' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/backend/news/{id}/edit")
+     * @Route("/backend/news/{id}/edit", name="be_news_edit")
      * @IsGranted("MANAGE", subject="article")
      */
-    public function edit(Article $article)
+    public function edit(Article $article, Request $request, EntityManagerInterface $em)
     {
-        dd($article);
+        $form = $this->createForm(ArticleFormType::class, $article);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+
+            /** @var Article $article */
+            $article = $form->getData();
+
+            $em->persist($article);
+            $em->flush();
+
+            $this->addFlash('success', 'Artilce Updated!');
+
+            return $this->redirectToRoute('be_news_edit', [
+                'id' => $article->getId(),
+            ]);
+        }
+
+        return $this->render('news_admin/edit.html.twig',[
+            'title' => 'Edit Log-Entry',
+            'articleForm' => $form->createView(),
+        ]);
     }
 }
