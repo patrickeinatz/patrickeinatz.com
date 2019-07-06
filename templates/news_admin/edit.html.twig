@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block jumbotron_lg %}<h1>{{ title }}</h1>{% endblock %}
+
+{% block content_lg_center %}
+        {{ include('news_admin/_form.html.twig', {
+                button_text: 'update'
+        }) }}
+{% endblock %}
