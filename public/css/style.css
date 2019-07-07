@@ -54,8 +54,8 @@ a:hover{
 }
 
 .nav-item {
-    font-family: "Helvetica Neue Light", sans-serif;
-    font-size: 18px;
+    font-family: "Helvetica Neue Medium", sans-serif;
+    font-size: 14px;
     margin-top: 1px;
 }
 
@@ -233,4 +233,9 @@ footer{
 
 .glyphicon{
     color: #1d1e1f;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
 }

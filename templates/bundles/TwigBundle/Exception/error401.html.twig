@@ -1,0 +1,20 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}401 - Unauthorized!{% endblock %}
+{% block jumbotron_sm %}<h1>401</h1>{% endblock %}
+{% block content_sm_center %}
+    <div class="row">
+        <div class="col-md-12" style="text-align: center; margin-top: -200px;">
+            <img class="img-responsive float-right" src="{{ asset('images/mons/401.png') }}" width="256" alt="Card image cap">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-light" role="alert">
+                <h4>Hold your horses little fella!</h4>
+                To access this particular region of our kingdom you must be a part of what we call "the inner circle of trust". You have to pass
+                <a href="{{ path('login') }}">the trials of credence</a> before we consider you worthy enough to lay eyes on what lies before you.
+            </div>
+        </div>
+    </div>
+{% endblock %}
