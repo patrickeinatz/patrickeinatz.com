@@ -1,0 +1,20 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}404 - Page not found!{% endblock %}
+{% block jumbotron_sm %}<h1>404</h1>{% endblock %}
+{% block content_sm_center %}
+        <div class="row">
+            <div class="col-md-12" style="text-align: center; margin-top: -200px;">
+                <img class="img-responsive float-right" src="{{ asset('images/mons/404.png') }}" width="256" alt="Card image cap">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-light" role="alert">
+                <h4>Looks like someone could benefit from a fresh brew!</h4>
+                According to a made up study, the consumption of hot black coffee improves navigational skills by 5-10%. In fact, no matter how much coffee you will drink,
+                    this page will always suffer from a lack of existence. Bummer!
+                </div>
+            </div>
+        </div>
+{% endblock %}

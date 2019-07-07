@@ -26,22 +26,22 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    font-family: "Helvetica Neue Light";
+    font-family: "Helvetica Neue Light", sans-serif;
     color: #1d1e1f;
     -webkit-font-smoothing: antialiased;
 }
 
 h1{
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 60px;
 }
 
 h2, h3, h4 {
-    font-family: "Helvetica Neue Heavy";
+    font-family: "Helvetica Neue Heavy", sans-serif;
 }
 
 .bolder{
-    font-family: "Helvetica Neue Heavy";
+    font-family: "Helvetica Neue Heavy", sans-serif;
 }
 
 a{
@@ -54,18 +54,18 @@ a:hover{
 }
 
 .nav-item {
-    font-family: "Helvetica Neue Medium";
+    font-family: "Helvetica Neue Medium", sans-serif;
     font-size: 14px;
-    margin-top: 3px;
+    margin-top: 1px;
 }
 
 .navbar-brand{
     color: #1d1e1f!important;
-    font-family: "Helvetica Neue Heavy";
+    font-family: "Helvetica Neue Heavy", sans-serif;
 }
 
 .navbar-brand-thin{
-    font-family: "Helvetica Neue Light";
+    font-family: "Helvetica Neue Light", sans-serif;
     text-transform: lowercase;
 }
 
@@ -96,7 +96,7 @@ a:hover{
     width: 100%;
     color:  #aaa;
     background-color: #ffffff;
-    font-family: "Helvetica Neue Light";
+    font-family: "Helvetica Neue Light", sans-serif;
     border: 1px solid  #aaa;
     border-radius: 0px;
     padding: 7px;
@@ -111,7 +111,7 @@ a:hover{
 }
 
 .form-input{
-    font-family: "Helvetica Neue Light";
+    font-family: "Helvetica Neue Light", sans-serif;
     margin-bottom: 15px;
     border-radius: 0px;
     border-color: #aaa;
@@ -128,7 +128,7 @@ a:hover{
 
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
     border: 1px solid #1d1e1f;
-    font-family: "Helvetica Neue Light";
+    font-family: "Helvetica Neue Light", sans-serif;
 }
 
 a.cold{
@@ -233,4 +233,9 @@ footer{
 
 .glyphicon{
     color: #1d1e1f;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
 }

@@ -33,11 +33,18 @@
 {% block content_sm_center %}
 
     {{ form_start(registrationForm, {attr: {class: 'form'} }) }}
+        {{ form_row(registrationForm.firstName,
+        {attr: {
+            class: 'form-input form-control',
+            placeholder: 'username'
+        }
+        }) }}
+
 
         {{ form_row(registrationForm.email,
             {attr: {
                 class: 'form-input form-control',
-                placeholder: 'mail'
+                placeholder: 'email'
             }
         }) }}
 

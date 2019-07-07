@@ -4,9 +4,7 @@
 namespace App\Form;
 
 use App\Entity\Article;
-use App\Entity\User;
 use App\Repository\UserRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -35,22 +33,14 @@ class ArticleFormType extends AbstractType
             ->add('publishedAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])
-            ->add('author',EntityType::class,array(
-                'class' => User::class,
-                'choice_label' => function(User $user) {
-                    return sprintf('(%d) %s', $user->getId(), $user->getFirstName());
-                },
-                'placeholder' => 'Choose an author',
-                'choices' => $this->userRepository
-                    ->findAllFirstnameAlphabetical()
-            ))
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class
+            'data_class' => Article::class,
+            ''
         ]);
 
     }

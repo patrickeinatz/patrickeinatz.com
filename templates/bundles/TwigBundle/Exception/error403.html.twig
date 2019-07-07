@@ -1,0 +1,19 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}403 - Forbidden!{% endblock %}
+{% block jumbotron_sm %}<h1>403</h1>{% endblock %}
+{% block content_sm_center %}
+    <div class="row">
+        <div class="col-md-12" style="text-align: center; margin-top: -200px;">
+            <img class="img-responsive float-right" src="{{ asset('images/mons/403.png') }}" width="256" alt="Card image cap">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-light" role="alert">
+                <h4>Well, well... look what we have here!</h4>
+                    We couldn't have missed the noise you made crashing into this concrete wall. One can just simply hope you've learned your lesson and wouldn't dare to try this again.
+            </div>
+        </div>
+    </div>
+{% endblock %}
