@@ -151,6 +151,15 @@ a.hot:hover{
     color: #d58512;
 }
 
+.list-group-item{
+    border-radius: 0!important;
+    border: none;
+}
+.list-group{
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
 
 .news_block{
     border: none;

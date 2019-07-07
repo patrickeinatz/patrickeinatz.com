@@ -46,4 +46,22 @@
             </div>
         </div>
     </div>
+    {% if 'ROLE_ADMIN' in app.user.roles %}
+        <br><br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="list-group">
+                <a href="{{ path('be_news_manager') }}" class="list-group-item list-group-item-action"><i class="far fa-newspaper"></i> News</a>
+            </div>
+            <br>
+            <div class="list-group">
+                <a href="{{ path('be_comment') }}" class="list-group-item list-group-item-action"><i class="far fa-comments"></i> Comments</a>
+            </div>
+            <br>
+            <div class="list-group">
+                <a href="{{ path('be_activity') }}" class="list-group-item list-group-item-action"><i class="fas fa-running"></i> Activity</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}
