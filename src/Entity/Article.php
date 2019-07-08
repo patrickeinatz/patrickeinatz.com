@@ -77,6 +77,11 @@ class Article
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $audio_file;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -273,6 +278,18 @@ class Article
                 ->atPath('title')
                 ->addViolation();
         }
+    }
+
+    public function getAudioFile(): ?string
+    {
+        return $this->audio_file;
+    }
+
+    public function setAudioFile(?string $audio_file): self
+    {
+        $this->audio_file = $audio_file;
+
+        return $this;
     }
 
 }

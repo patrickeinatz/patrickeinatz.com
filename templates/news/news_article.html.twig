@@ -25,6 +25,7 @@
 {% endblock %}
 
 {% block content_sm_center %}
+    <audio src="{{ asset('/uploads/audio_files/' ~  article.audioFile ) }}" controls ></audio>
 
     {{ article.content|cached_markdown }}
 
