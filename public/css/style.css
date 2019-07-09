@@ -248,3 +248,8 @@ footer{
     display: flex;
     flex: 1 1 auto;
 }
+
+.dashboard{
+    width: 100%;
+    margin-bottom: 15px;
+}

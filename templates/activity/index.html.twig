@@ -27,9 +27,9 @@
                 <td>{{ activity.date.format('Y.m.d') }}</td>
                 <td>{{ activity.user.firstName }}</td>
                 <td>{{ activity.training }}</td>
-                <td>{% if activity.noAlcohol %}<i class="fas fa-check-circle"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
-                <td>{% if activity.noCandy %}<i class="fas fa-check-circle"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
-                <td>{% if  activity.noCarbs %}<i class="fas fa-check-circle"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
+                <td>{% if activity.noAlcohol %}<i class="fas fa-check-circle" style="color: limegreen;"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
+                <td>{% if activity.noCandy %}<i class="fas fa-check-circle" style="color: limegreen;"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
+                <td>{% if  activity.noCarbs %}<i class="fas fa-check-circle" style="color: limegreen;"></i>{% else %}<i class="fas fa-times-circle"></i>{% endif %}</td>
                 <td>{{ activity.comment }}</td>
             </tr>
         {% endfor %}
