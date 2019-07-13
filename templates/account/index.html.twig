@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_backend.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/account.css') }}">
 {% endblock %}
 {% block title %}{{ title }}{% endblock %}
 
-{% block jumbotron_md %}<h1>{{ app.user.firstName }}'s Account</h1>{% endblock %}
+{% block jumbotron %}<h1>{{ app.user.firstName }}'s Account</h1>{% endblock %}
 
-{% block content_md_center %}
+{% block content %}
     <div class="row user-menu-container square">
         <div class="col-md-12 user-details">
             <div class="row spacepurplebg white">
@@ -44,20 +44,6 @@
                     <h4>3,892</h4>
                 </div>
             </div>
-            {% if 'ROLE_ADMIN' in app.user.roles %}
-                <hr>
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="{{ path('be_news_manager') }}" class="btn btn-dark dashboard"><i class="far fa-newspaper"></i> News</a>
-                        <a href="{{ path('be_comment') }}" class="btn btn-dark dashboard"><i class="far fa-comments"></i> Comments</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="{{ path('be_activity') }}" class="btn btn-dark dashboard"><i class="fas fa-running"></i> Activity</a>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
-                </div>
-            {% endif %}
         </div>
     </div>
 {% endblock %}

@@ -154,11 +154,20 @@ a.hot:hover{
 .list-group-item{
     border-radius: 0!important;
     border: none;
+    margin: 5px;
+    padding: 1px;
 }
-.list-group{
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+
+.activity-element{
+    margin-bottom: 10px;
+}
+
+.activity-element-data{
+    text-align: center;
+    background-color: #efefef;
+    padding: 5px 0;
+    border-right: solid 1px #ffffff;
+    margin-bottom: 1px;
 }
 
 .news_block{
@@ -251,5 +260,12 @@ footer{
 
 .dashboard{
     width: 100%;
-    margin-bottom: 15px;
+    background-color: #545b63;;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 5px;
+}
+
+.dashboard:hover{
+    background-color: #1d1e1f;
 }

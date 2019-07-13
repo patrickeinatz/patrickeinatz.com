@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_backend.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block jumbotron_lg %}<h1>{{ title }}</h1>{% endblock %}
+{% block jumbotron %}<h1>{{ title }}</h1>{% endblock %}
 
-{% block content_lg_center %}
+{% block content %}
         <a href="{{ path('be_news_new') }}" class="btn btn-primary pull-right">
                 Create <span class="fa fa-plus-circle"></span>
         </a>
@@ -22,7 +22,7 @@
                 {% for article in articles %}
                         <tr>
                                 <td>{{ article.title }}</td>
-                                <td>{{ article.author.email }}</td>
+                                <td>{{ article.author.firstName }}</td>
                                 <td>
                                         <span class="fa fa-{{ article.isPublished ? 'check' : 'times' }}"></span>
                                 </td>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        {% block stylesheets %}{% endblock %}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/fav/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/fav/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/fav/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('images/fav/site.webmanifest') }}">
+    </head>
+    <body>
+    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+        <div class="alert alert-warning" style="margin-bottom: 0px">
+            You are currently switched to this user.
+            <a href="{{ path('index', {
+                '_switch_user': '_exit'
+            }) }}">Exit Impersonation</a>
+        </div>
+    {% endif %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-light default-color">
+        <a class="navbar-brand" href="{{ path('index') }}"><span> patrickeinatz<span class="navbar-brand-thin">.com</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('index') }}">Log</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('data') }}">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('archive') }}">Archive</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('account') }}"><i class="fas fa-user-circle"></i> <b>{{ app.user.firstname}}'s</b> Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('login') }}"><i class="fas fa-sign-in-alt"></i> Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('register') }}"><i class="fas fa-file-signature"></i> Register</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!--/.Navbar -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% block jumbotron %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                    <a href="{{ path('account') }}" class="btn btn-dark dashboard"><i class="fas fa-user"></i> Account</a>
+                {% if 'ROLE_ADMIN' in app.user.roles %}
+                    <a href="{{ path('be_news_manager') }}" class="btn btn-dark dashboard"><i class="far fa-newspaper"></i> News</a>
+                    <a href="{{ path('be_comment') }}" class="btn btn-dark dashboard"><i class="far fa-comments"></i> Comments</a>
+                    {% block backend_nav_admin %}{% endblock %}
+                {% endif %}
+                    <a href="{{ path('be_activity') }}" class="btn btn-dark dashboard"><i class="fas fa-running"></i> Activity</a>
+                    {% block backend_nav %}{% endblock %}
+            </div>
+            <div class="col-md-10">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+    <!-- /container -->
+    <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
+    <script src="{{ asset('js/tether.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script src="{{ asset('js/news_article.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+    </body>
+</html>
