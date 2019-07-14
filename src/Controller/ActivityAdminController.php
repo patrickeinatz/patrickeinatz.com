@@ -44,6 +44,7 @@ class ActivityAdminController extends AbstractController
 
             /** @var Activity $activity */
             $activity = $form->getData();
+            $activity->setUser($this->getUser());
 
             $em->persist($activity);
             $em->flush();

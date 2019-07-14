@@ -3,58 +3,66 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block jumbotron%}<h1>{{ title }}</h1>{% endblock %}
-{% block backend_nav %}
-    <a href="{{ path('be_activity_new') }}" class="btn btn-sm btn-primary">
-        Add Record <span class="fa fa-plus-circle"></span>
+{% block backend_nav_activity_sub %}
+    <a href="{{ path('be_activity_new') }}" class="btn btn-sm sub-tool">
+        <i class="fa fa-plus-circle"></i> Create
     </a>
 {% endblock %}
 {% block content %}
 <div class="container">
+        <div class="row activity-element">
+            <div class="col-md-3 activity-element-header"><i class="fas fa-calendar-alt"></i></div>
+            <div class="col-md-2 activity-element-header"><i class="fas fa-running"></i></div>
+            <div class="col-md-1 activity-element-header"><i class="fas fa-wine-bottle"></i></div>
+            <div class="col-md-1 activity-element-header"><i class="fas fa-cubes"></i></div>
+            <div class="col-md-1 activity-element-header"><i class="fas fa-utensils"></i></div>
+            <div class="col-md-4 activity-element-header"><i class="fas fa-medal"></i></div>
+        </div>
+
     {% for activity in activities %}
         <div class="row activity-element">
             {% set foo = activity.training + activity.noCarbs + activity.noCandy + activity.noAlcohol %}
             <div class="col-md-3 activity-element-data">
-                {{ activity.date.format('d.m.Y') }}
+                <span class="text-secondary">{{ activity.date.format('d.m.Y') }}</span>
             </div>
             <div class="col-md-2 activity-element-data">
                 {% if activity.training == 0 %}
-                    <i class="fas fa-running text-secondary"></i>
-                    <i class="fas fa-running text-secondary"></i>
-                    <i class="fas fa-running text-secondary"></i>
+                    <i class="far fa-circle text-secondary"></i>
+                    <i class="far fa-circle text-secondary"></i>
+                    <i class="far fa-circle text-secondary"></i>
                 {% elseif activity.training == 1 %}
-                    <i class="fas fa-running text-success"></i>
-                    <i class="fas fa-running text-secondary"></i>
-                    <i class="fas fa-running text-secondary"></i>
+                    <i class="fas fa-circle text-secondary"></i>
+                    <i class="far fa-circle text-secondary"></i>
+                    <i class="far fa-circle text-secondary"></i>
                 {% elseif activity.training == 2 %}
-                    <i class="fas fa-running text-success"></i>
-                    <i class="fas fa-running text-success"></i>
-                    <i class="fas fa-running text-secondary"></i>
+                    <i class="fas fa-circle text-secondary"></i>
+                    <i class="fas fa-circle text-secondary"></i>
+                    <i class="far fa-circle text-secondary"></i>
                 {% elseif activity.training == 3 %}
-                    <i class="fas fa-running text-success"></i>
-                    <i class="fas fa-running text-success"></i>
-                    <i class="fas fa-running text-success"></i>
+                    <i class="fas fa-circle text-secondary"></i>
+                    <i class="fas fa-circle text-secondary"></i>
+                    <i class="fas fa-circle text-secondary"></i>
                 {% endif %}
             </div>
             <div class="col-md-1 activity-element-data">
                 {% if activity.noAlcohol %}
-                    <i class="fas fa-tint text-primary"></i>
+                    <i class="fas fa-check-circle text-secondary"></i>
                 {% else %}
-                    <i class="fas fa-beer text-secondary"></i>
+                    <i class="fas fa-times-circle text-secondary"></i>
                 {% endif %}
             </div>
             <div class="col-md-1 activity-element-data">
                 {% if activity.noCandy %}
-                    <i class="fas fa-apple-alt text-success"></i>
+                    <i class="fas fa-check-circle text-secondary"></i>
                 {% else %}
-                    <i class="fas fa-cubes text-secondary"></i>
-
+                    <i class="fas fa-times-circle text-secondary"></i>
                 {% endif %}
             </div>
             <div class="col-md-1 activity-element-data">
                 {% if  activity.noCarbs %}
-                    <i class="fas fa-leaf text-success"></i>
+                    <i class="fas fa-check-circle text-secondary"></i>
                 {% else %}
-                    <i class="fas fa-hamburger text-secondary"></i>
+                    <i class="fas fa-times-circle text-secondary"></i>
                 {% endif %}
             </div>
             <div class="col-md-4 activity-element-data">
@@ -63,29 +71,29 @@
                     <i class="far fa-star text-secondary"></i>
                     <i class="far fa-star text-secondary"></i>
                 {% elseif foo == 1 %}
-                    <i class="fas fa-star-half-alt text-warning" style="width: 18px"></i>
+                    <i class="fas fa-star-half-alt text-secondary" style="width: 18px"></i>
                     <i class="far fa-star text-secondary"></i>
                     <i class="far fa-star text-secondary"></i>
                 {% elseif foo == 2 %}
-                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-secondary"></i>
                     <i class="far fa-star text-secondary"></i>
                     <i class="far fa-star text-secondary"></i>
                 {% elseif foo == 3 %}
-                    <i class="fas fa-star text-warning"></i>
-                    <i class="fas fa-star-half-alt text-warning" style="width: 18px"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star-half-alt text-secondary" style="width: 18px"></i>
                     <i class="far fa-star text-secondary"></i>
                 {% elseif foo == 4 %}
-                    <i class="fas fa-star text-warning"></i>
-                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
                     <i class="far fa-star text-secondary"></i>
                 {% elseif foo == 5 %}
-                    <i class="fas fa-star text-warning"></i>
-                    <i class="fas fa-star text-warning"></i>
-                    <i class="fas fa-star-half-alt text-warning" style="width: 18px"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star-half-alt text-secondary" style="width: 18px"></i>
                 {% else %}
-                    <i class="fas fa-star text-warning"></i>
-                    <i class="fas fa-star text-warning"></i>
-                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
                 {% endif %}
             </div>
         </div>

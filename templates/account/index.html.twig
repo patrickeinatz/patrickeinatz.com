@@ -6,8 +6,11 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block jumbotron %}<h1>{{ app.user.firstName }}'s Account</h1>{% endblock %}
-
+{% block backend_nav_account_sub %}
+    <a class="btn btn-sm sub-tool" href="#"><i class="fas fa-pencil-alt"></i> Edit</a>
+{% endblock %}
 {% block content %}
+<div class="container">
     <div class="row user-menu-container square">
         <div class="col-md-12 user-details">
             <div class="row spacepurplebg white">
@@ -24,9 +27,6 @@
                             {{ app.user.twitterUsername }}
                         </h4>
                         {% endif %}
-                        <a class="btn btn-labeled btn-info" href="#">
-                            <span class="btn-label"><i class="fas fa-pencil-alt"></i></span>Update
-                        </a>
                     </div>
                 </div>
             </div>
@@ -46,4 +46,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
