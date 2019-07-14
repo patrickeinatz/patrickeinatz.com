@@ -22,7 +22,9 @@ class ActivityAdminController extends AbstractController
      */
     public function index(ActivityRepository $activityRepository)
     {
-        $activities = $activityRepository->findAll();
+        $activities = $activityRepository->findBy([
+            'user' => $this->getUser()->getId()
+        ]);
 
         return $this->render('activity/index.html.twig', [
             'title' => 'Activity Manager',
@@ -42,6 +44,7 @@ class ActivityAdminController extends AbstractController
 
             /** @var Activity $activity */
             $activity = $form->getData();
+            $activity->setUser($this->getUser());
 
             $em->persist($activity);
             $em->flush();

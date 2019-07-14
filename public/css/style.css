@@ -79,6 +79,10 @@ a:hover{
     border-radius: 0px!important;
 }
 
+form{
+    border-radius: 0;
+}
+
 .form{
     /*border: 1px solid #ddd;*/
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
@@ -151,6 +155,57 @@ a.hot:hover{
     color: #d58512;
 }
 
+.list-group-item{
+    border-radius: 0!important;
+    border: none;
+    margin: 5px;
+    padding: 1px;
+}
+
+.activity-element{
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+
+.activity-element-header{
+    text-align: center;
+    background-color: #1d1e1f;
+    color: #fff;
+    padding: 5px 0;
+    border-right: solid 1px #ffffff;
+    margin-bottom: 1px;
+}
+
+
+.activity-element-data{
+    text-align: center;
+    background-color: #efefef;
+    padding: 5px 0;
+    border-right: solid 1px #ffffff;
+    margin-bottom: 1px;
+}
+
+.log-element{
+    font-size: 13px;
+}
+
+.log-element-data{
+    text-align: center;
+    background-color: #efefef;
+    padding: 5px 0;
+    border-right: solid 1px #ffffff;
+    margin-bottom: 1px;
+}
+
+.log-element-data-button{
+    padding: 0;
+    border-right: solid 1px #ffffff;
+}
+
+.data-title{
+    text-align: left;
+    padding-left: 10px;
+}
 
 .news_block{
     border: none;
@@ -239,3 +294,73 @@ footer{
     display: flex;
     flex: 1 1 auto;
 }
+
+.backend-nav{
+
+}
+
+.backend_nav_main{
+    width: 100%;
+    background-color: #1d1e1f;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 5px;
+}
+
+.backend_nav_main:hover{
+    background-color: #4e555b;
+}
+
+.sub{
+    margin-top: -4px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: steelblue;
+    color: #1d1e1f;
+    border-radius: 0;
+    border: none;
+}
+
+.sub:hover{
+    background-color: dodgerblue;
+    color: #1d1e1f;
+}
+
+.sub-tool{
+    margin-top: -4px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: mediumseagreen;
+    color: #1d1e1f;
+    border-radius: 0;
+    border: none;
+}
+
+.sub-tool:hover{
+    background-color: limegreen;
+    color: #1d1e1f;
+}
+
+.sub-tool-inline{
+    margin: 0;
+    width: 100%;
+    background-color: mediumseagreen;
+    color: #1d1e1f;
+    border-radius: 0;
+    border: none;
+}
+
+.sub-tool-inline:hover{
+    background-color: limegreen;
+    color: #1d1e1f;
+}
+
+.del{
+    background-color:  indianred;
+}
+
+.del:hover{
+    background-color: red;
+}
+

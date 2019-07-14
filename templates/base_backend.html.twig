@@ -69,22 +69,8 @@
     <div class="jumbotron">
         <div class="container">
             <div class="row">
-                <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        {% block jumbotron_sm %}{% endblock %}
-                    </div>
-                <div class="col-md-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    {% block jumbotron_md %}{% endblock %}
-                </div>
-                <div class="col-md-1"></div>
-            </div>
-            <div class="row">
                 <div class="col-md-12">
-                    {% block jumbotron_lg %}{% endblock %}
+                    {% block jumbotron %}{% endblock %}
                 </div>
             </div>
         </div>
@@ -92,22 +78,18 @@
     <!-- container -->
     <div class="container">
         <div class="row">
-            <div class="col-md-2">{% block content_sm_left %}{% endblock %}</div>
-            <div class="col-md-8">
-                {% block content_sm_center %}{% endblock %}
+            <div class="col-md-2 backend-nav">
+                    <a href="{{ path('account') }}" class="btn btn-sm btn-dark backend_nav_main"><i class="fas fa-user"></i> Account</a>
+                    {% block backend_nav_account_sub %}{% endblock %}
+                {% if 'ROLE_ADMIN' in app.user.roles %}
+                    <a href="{{ path('be_news_manager') }}" class="btn btn-sm btn-dark backend_nav_main"><i class="fas fa-book-dead"></i> Logbook</a>
+                    {% block backend_nav_news_sub %}{% endblock %}
+                {% endif %}
+                    <a href="{{ path('be_activity') }}" class="btn btn-sm btn-dark backend_nav_main"><i class="fas fa-running"></i> Activity</a>
+                    {% block backend_nav_activity_sub %}{% endblock %}
             </div>
-            <div class="col-md-2">{% block content_sm_right %}{% endblock %}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    {% block content_md_center %}{% endblock %}
-                </div>
-            <div class="col-md-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                {% block content_lg_center %}{% endblock %}
+            <div class="col-md-10">
+                {% block content %}{% endblock %}
             </div>
         </div>
     </div>

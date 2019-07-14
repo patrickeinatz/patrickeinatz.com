@@ -47,10 +47,6 @@ class ActivityFormType extends AbstractType
             ->add('comment', TextType::class,[
                 'help' => 'e.g. weight or belly circumference'
             ])
-            ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'firstname'
-            ])
         ;
     }
 

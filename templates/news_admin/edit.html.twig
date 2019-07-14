@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_backend.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block jumbotron_lg %}<h1>{{ title }}</h1>{% endblock %}
+{% block jumbotron %}<h1>{{ title }}</h1>{% endblock %}
 
-{% block content_lg_center %}
-        {{ include('news_admin/_form.html.twig', {
-                button_text: 'update'
-        }) }}
+{% block content %}
+        <div class="container">
+                <div class="row log-element">
+                {{ include('news_admin/_form.html.twig', {
+                        button_text: 'update'
+                }) }}
+                </div>
+        </div>
 {% endblock %}
