@@ -1,0 +1,32 @@
+{% if app.user != null %}
+    <div id="MainMenu">
+        <div class="list-group panel">
+            <!-- ACCOUNT SECTION -->
+            <a href="{{ path('account') }}" class="list-group-item list-group-item-action {{ app.request.pathInfo == '/account' ? 'active'}}"><i class="fas fa-user"></i> Account</a>
+            {% if '/account' in app.request.pathInfo %}
+                <div class="small">
+                    <a href="javascript:;" class="list-group-item">Edit</a>
+                </div>
+            {% endif %}
+
+            <!-- LOGBOOK SECTION -->
+            {% if 'ROLE_ADMIN' in app.user.roles %}
+                <a href="{{ path('be_news_manager') }}" class="list-group-item list-group-item-action {{ app.request.pathInfo == '/backend/news' ? 'active'}}"><i class="fas fa-book-dead"></i> Logbook</a>
+                {% if '/backend/news' in app.request.pathInfo or '/backend/comment' in app.request.pathInfo %}
+                    <div class="small">
+                        <a href="{{ path('be_news_new') }}" class="list-group-item {{ app.request.pathInfo == '/backend/news/new' ? 'active'}}"><i class="fa fa-plus-circle"></i> Create</a>
+                        <a href="{{ path('be_comment') }}" class="list-group-item {{ app.request.pathInfo == '/backend/comment' ? 'active'}}"><i class="far fa-comments"></i> Comments</a>
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            <!-- ACTIVITY SECTION -->
+            <a href="{{ path('be_activity') }}" class="list-group-item list-group-item-action {{ app.request.pathInfo == '/backend/activity' ? 'active'}}"><i class="fas fa-running"></i> Activity</a>
+            {% if '/backend/activity' in app.request.pathInfo %}
+                <div class="small">
+                    <a href="{{ path('be_activity_new') }}" class="list-group-item {{ app.request.pathInfo == '/backend/activity/new' ? 'active'}}"><i class="fa fa-plus-circle"></i> Add</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

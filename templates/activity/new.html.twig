@@ -1,10 +1,8 @@
-{% extends 'base_backend.html.twig' %}
+{% extends 'bare.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
-
-{% block jumbotron %}<h1>{{ title }}</h1>{% endblock %}
-
-{% block content %}
+    {% block content_bare%}
+    <h1>Activity - add</h1>
     {{ form_start(activityForm) }}
     {{ form_row(activityForm.date) }}
     {{ form_row(activityForm.training) }}

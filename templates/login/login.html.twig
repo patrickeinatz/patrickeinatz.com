@@ -1,11 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'bare.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
-        {% block jumbotron_sm %}<h1>{{ title }}</h1>{% endblock %}
-{% block content_sm_center %}
+
+{% block content_bare%}
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
+    <div class="card form-card">
+        <div class="card-header bg-dark text-light">
+            <h1>Login</h1>
+        </div>
+        <div class="card-body">
             <form method="post" class="form">
                 <div class="form-group">
                     <input type="email" class="form-input form-control" id="email" name="email" placeholder="email" value="{{ last_usermail }}" required autofocus/>
@@ -34,5 +39,6 @@
                     <button type="submit" id="sendlogin" class="login-button btn">login</button>
                 </div>
             </form>
-
+        </div>
+    </div>
 {% endblock %}

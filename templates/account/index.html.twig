@@ -1,50 +1,15 @@
-{% extends 'base_backend.html.twig' %}
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
-{% endblock %}
-{% block title %}{{ title }}{% endblock %}
+{% extends 'bare.html.twig' %}
 
-{% block jumbotron %}<h1>{{ app.user.firstName }}'s Account</h1>{% endblock %}
-{% block backend_nav_account_sub %}
-    <a class="btn btn-sm sub-tool" href="#"><i class="fas fa-pencil-alt"></i> Edit</a>
-{% endblock %}
-{% block content %}
-<div class="container">
-    <div class="row user-menu-container square">
-        <div class="col-md-12 user-details">
-            <div class="row spacepurplebg white">
-                <div class="col-md-2 no-pad">
-                    <div class="user-image">
-                        <img src="{{ app.user.avatarUrl }}" class="img-responsive thumbnail">
-                    </div>
-                </div>
-                <div class="col-md-10 no-pad">
-                    <div class="user-pad">
-                        <h3>Welcome back, {{ app.user.firstName }}</h3>
-                        {% if app.user.twitterUsername %}
-                        <h4 class="white"><i class="fab fa-twitter"></i>
-                            {{ app.user.twitterUsername }}
-                        </h4>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            <div class="row overview">
-                <div class="col-md-4 user-pad text-center">
-                    <h3>COMMENTS</h3>
-                    <h4>184</h4>
-                </div>
-                <div class="col-md-4 user-pad text-center">
-                    <h3>ARTICLES READ</h3>
-                    <h4>1,910</h4>
-                </div>
-                <div class="col-md-4 user-pad text-center">
-                    <h3>LIKES</h3>
-                    <h4>3,892</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% block title %}{{ title }}{% endblock %}
+    {% block content_bare%}
+    <h1>Account</h1>
+    Bacon ipsum dolor amet rump t-bone prosciutto, shankle drumstick tail beef ribs. Turkey landjaeger ball tip filet mignon, ribeye boudin tongue ham turducken porchetta ham hock capicola corned beef. Pastrami brisket ground round, flank tenderloin picanha bacon pig frankfurter leberkas. Tri-tip turkey meatloaf capicola strip steak fatback sausage shank prosciutto ball tip pork loin tail buffalo. Chuck ground round pig, boudin pastrami meatloaf pancetta capicola. Ham hock fatback tail, cupim pork loin drumstick filet mignon landjaeger doner strip steak ribeye ground round tongue t-bone jerky.
+    <br><br>
+    Spare ribs ham tri-tip ground round jerky porchetta shank bacon ham hock pork belly. Chicken corned beef cupim, frankfurter beef jowl brisket. Beef ribs turkey bresaola chuck. Meatball pork belly biltong pig, ham drumstick cow prosciutto.
+    <br><br>
+    Buffalo hamburger tenderloin bacon ribeye bresaola. Landjaeger ribeye spare ribs beef pork pork belly. Short loin beef ribs pork belly hamburger t-bone. Pastrami bresaola pork loin brisket turducken picanha buffalo meatball doner fatback shoulder shankle. Burgdoggen buffalo frankfurter tenderloin, meatball cow doner shankle spare ribs tri-tip picanha. Hamburger drumstick swine leberkas biltong picanha. Meatloaf bresaola chuck, ball tip jowl swine prosciutto pork loin.
+    <br><br>
+    Corned beef turducken flank venison. Biltong shankle boudin tenderloin leberkas. Turducken porchetta drumstick, fatback sausage sirloin flank jerky pork loin filet mignon chicken jowl pastrami cupim. Capicola tenderloin shoulder leberkas meatloaf porchetta ball tip boudin landjaeger venison. Rump ham capicola beef drumstick. Corned beef burgdoggen doner ham, jerky chuck frankfurter jowl beef ribs kielbasa leberkas rump alcatra. Ball tip pork chop tri-tip boudin strip steak meatball, sirloin pig tail biltong chicken short loin meatloaf flank filet mignon.
+    <br><br>
+    Pancetta frankfurter andouille cupim burgdoggen pork loin, chuck buffalo prosciutto bresaola alcatra. Andouille biltong tail shoulder kevin. Tri-tip swine picanha beef ribs tenderloin pork jowl shank. Boudin fatback picanha filet mignon venison pork loin jowl andouille ribeye biltong burgdoggen jerky corned beef porchetta capicola.
 {% endblock %}

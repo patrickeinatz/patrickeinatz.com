@@ -31,6 +31,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.bg-dark{
+    background-color: #1d1e1f!important;
+    color: #ffffff;
+}
+
 h1{
     font-family: "Helvetica Neue", sans-serif;
     font-size: 60px;
@@ -45,11 +50,11 @@ h2, h3, h4 {
 }
 
 a{
-    color: #028e8a;
+    color: dodgerblue;
 }
 
 a:hover{
-    color: #033d3b;
+    color: steelblue;
     text-decoration: none;
 }
 
@@ -60,15 +65,28 @@ a:hover{
 }
 
 .navbar-brand{
+    font-size: 20px;
     color: #1d1e1f!important;
     font-family: "Helvetica Neue Heavy", sans-serif;
 }
 
 .navbar-brand-thin{
+    font-size: 20px;
     font-family: "Helvetica Neue Light", sans-serif;
     text-transform: lowercase;
 }
 
+.navbar-brand-light{
+    font-size: 20px;
+    color: #ffffff!important;
+    font-family: "Helvetica Neue Heavy", sans-serif;
+}
+
+.navbar-brand-light-thin{
+    font-size: 20px;
+    font-family: "Helvetica Neue Light", sans-serif;
+    text-transform: lowercase;
+}
 .bg-inverse{
     background-color: #1d1e1f!important;
 }
@@ -81,15 +99,29 @@ a:hover{
 
 form{
     border-radius: 0;
+    border: none;
 }
 
-.form{
-    /*border: 1px solid #ddd;*/
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    padding: 43px 50px 50px 50px;
-    margin-top: 100px;
+.form-card{
+    border-radius: 0;
+    border: none;
+    margin: 100px auto;
+    width: 26rem;
+}
+
+.backend-table{
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.backend-table td, .backend-table th {
+    padding: .5rem;
+    border-top: dashed 1px #2a2c2e;
+}
+
+.backend-table thead th {
+    border-bottom: none!important;
+    background-color: #111212;
 }
 
 .login-button{
@@ -157,49 +189,69 @@ a.hot:hover{
 
 .list-group-item{
     border-radius: 0!important;
-    border: none;
-    margin: 5px;
-    padding: 1px;
-}
-
-.activity-element{
-    font-size: 13px;
-    margin-bottom: 0px;
-}
-
-.activity-element-header{
-    text-align: center;
     background-color: #1d1e1f;
-    color: #fff;
-    padding: 5px 0;
-    border-right: solid 1px #ffffff;
-    margin-bottom: 1px;
+    border: none;
 }
 
+#MainMenu{
+    min-width: 120px;
+}
 
-.activity-element-data{
+.list-group-item:hover{
+    background-color: dodgerblue;
+    color: #1d1e1f;
+}
+
+.backend-list-element{
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.backend-list-element-header-center{
     text-align: center;
-    background-color: #efefef;
-    padding: 5px 0;
-    border-right: solid 1px #ffffff;
+    color: #fff;
+    background-color: #2a2c2e;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
     margin-bottom: 1px;
 }
 
-.log-element{
-    font-size: 13px;
+.backend-list-element-header{
+    text-align: left;
+    color: #fff;
+    background-color: #2a2c2e;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
+    margin-bottom: 1px;
+}
+
+.backend-list-element-data-center{
+    text-align: center;
+    color: #fff;
+    background-color: #111212;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
+    margin-bottom: 1px;
+}
+
+.backend-list-element-data{
+    text-align: left;
+    color: #fff;
+    background-color: #111212;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
+    margin-bottom: 1px;
+}
+
+.backend-list-element-control{
+    padding: 0;
+    border-right: solid 1px #1d1e1f;
 }
 
 .log-element-data{
     text-align: center;
-    background-color: #efefef;
     padding: 5px 0;
-    border-right: solid 1px #ffffff;
     margin-bottom: 1px;
-}
-
-.log-element-data-button{
-    padding: 0;
-    border-right: solid 1px #ffffff;
 }
 
 .data-title{
