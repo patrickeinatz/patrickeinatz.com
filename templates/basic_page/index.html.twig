@@ -17,7 +17,7 @@
                         <div class="card-body">
                             <h4 class="timeline-title">{{ article.title }}</h4>
                             <p>
-                                {{ article.content|truncate(140,true,'...')}}
+                                {{ article.excerpt}}
                             </p>
                             <div class="news_details">
                                 {% if article.tags.count > 0 %}

@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class ArticleFormType extends AbstractType
 {
@@ -30,7 +31,19 @@ class ArticleFormType extends AbstractType
                 'help' => 'Choose something catchy',
                 'label' => 'Title',
                 'required' => true
-            ])
+            ]);
+
+            $audioConstraints = new File([
+                'maxSize' => '10M',
+                'mimeTypes' => [
+                    'audio/mpeg',
+                    'audio/mpeg3',
+                    'audio/x-mpeg-3',
+                ],
+                'mimeTypesMessage' => 'Please upload a valid MP3file',
+            ]);
+
+        $builder
             ->add('audio_file', FileType::class, [
                 'label' => 'Audio File (MP3 file)',
 
@@ -43,19 +56,12 @@ class ArticleFormType extends AbstractType
 
                 // unmapped fields can't define their validation using annotations
                 // in the associated entity, so you can use the PHP constraint classes
-                'constraints' => [
-                    new File([
-                        'maxSize' => '8192k',
-                        'mimeTypes' => [
-                            'audio/mpeg',
-                            'audio/mpeg3',
-                            'audio/x-mpeg-3',
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid MP3file',
-                    ])
-                ]
+                'constraints' => $audioConstraints
             ])
-            ->add('content', TextareaType::class)
+            ->add('content', TextareaType::class, [
+            'attr' => ['class' => 'trumbowyg']
+            ])
+            ->add('excerpt', TextareaType::class)
             ->add('publishedAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])

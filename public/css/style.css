@@ -94,7 +94,7 @@ a:hover{
 .jumbotron{
     color: #ffffff;
     background-color: #1d1e1f;
-    border-radius: 0px!important;
+    border-radius: 0!important;
 }
 
 form{
@@ -108,6 +108,39 @@ form{
     margin: 100px auto;
     width: 26rem;
 }
+
+.form-control{
+    border: solid 1px #2a2c2e;
+    border-radius: 0;
+    background-color: #111212;
+}
+
+.form-control:focus{
+    border: solid 1px dodgerblue;
+    border-radius: 0;
+    background-color: #111212;
+}
+
+.custom-file-input + label {
+    border: solid 1px #2a2c2e;
+    border-radius: 0;
+    background-color: #111212;
+    display: inline-block;
+}
+
+.custom-file-input:focus + label,
+.custom-file-input + label:hover {
+    border: solid 1px dodgerblue;
+    border-radius: 0;
+    background-color: #111212;
+}
+
+.custom-file-label::after {
+    color: #cccccc;
+    border-radius: 0;
+    background-color: #2a2c2e;
+}
+
 
 .backend-table{
     color: #ffffff;
