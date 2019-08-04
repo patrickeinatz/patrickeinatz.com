@@ -3,15 +3,14 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content_bare%}
-            {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
-    <div class="card form-card">
-        <div class="card-header bg-dark text-light">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
             <h1>Login</h1>
-        </div>
-        <div class="card-body">
-            <form method="post" class="form">
+            <form method="post" class="form" autocomplete="off">
                 <div class="form-group">
                     <input type="email" class="form-input form-control" id="email" name="email" placeholder="email" value="{{ last_usermail }}" required autofocus/>
                 </div>
@@ -36,9 +35,10 @@
                        value="{{ csrf_token('authenticate') }}"
                 >
                 <div class="form-group-centered">
-                    <button type="submit" id="sendlogin" class="login-button btn">login</button>
+                    <button type="submit" id="sendlogin" class="btn btn-sm sub-tool">Login</button>
                 </div>
             </form>
         </div>
+        <div class="col-md-4"></div>
     </div>
 {% endblock %}

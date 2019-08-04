@@ -182,8 +182,9 @@ form{
 .form-input{
     font-family: "Helvetica Neue Light", sans-serif;
     margin-bottom: 15px;
-    border-radius: 0px;
-    border-color: #aaa;
+    border-radius: 0;
+    color: #2a2c2e;
+    border:solid 1px #2a2c2e;
 }
 .form-input::placeholder{
     color: #aaa;
@@ -220,19 +221,25 @@ a.hot:hover{
     color: #d58512;
 }
 
+#MainMenu{
+    min-width: 120px;
+}
+
 .list-group-item{
     border-radius: 0!important;
     background-color: #1d1e1f;
-    border: none;
-}
-
-#MainMenu{
-    min-width: 120px;
+    border: solid 1px #2a2c2e!important;
 }
 
 .list-group-item:hover{
     background-color: dodgerblue;
     color: #1d1e1f;
+}
+
+.submenu{
+    width: 100%;
+    border-top:solid 1px steelblue!important;
+    background-color: steelblue!important;
 }
 
 .backend-list-element{
@@ -416,15 +423,15 @@ footer{
     margin-top: -4px;
     margin-bottom: 10px;
     width: 100%;
-    background-color: mediumseagreen;
-    color: #1d1e1f;
+    background-color: #111212;
+    color: #2a2c2e;
     border-radius: 0;
-    border: none;
+    border:solid 1px #2a2c2e;
 }
 
 .sub-tool:hover{
-    background-color: limegreen;
-    color: #1d1e1f;
+    color: #cccccc;
+    background-color: #2a2c2e;
 }
 
 .sub-tool-inline{
@@ -437,8 +444,16 @@ footer{
 }
 
 .sub-tool-inline:hover{
-    background-color: limegreen;
+    background-color: mediumseagreen;
     color: #1d1e1f;
+}
+
+.suc{
+    background-color:  indianred;
+}
+
+.suc:hover{
+    background-color: limegreen;;
 }
 
 .del{
