@@ -1,0 +1,94 @@
+{% extends 'backend/bare.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+    {% block content_bare%}
+        <h1>Activity</h1>
+        <div class="row backend-list-element">
+            <div class="col-md-3 backend-list-element-header-center"><i class="fas fa-calendar-alt"></i></div>
+            <div class="col-md-2 backend-list-element-header-center"><i class="fas fa-running"></i></div>
+            <div class="col-md-1 backend-list-element-header-center"><i class="fas fa-wine-bottle"></i></div>
+            <div class="col-md-1 backend-list-element-header-center"><i class="fas fa-cubes"></i></div>
+            <div class="col-md-1 backend-list-element-header-center"><i class="fas fa-utensils"></i></div>
+            <div class="col-md-4 backend-list-element-header-center"><i class="fas fa-medal"></i></div>
+        </div>
+
+    {% for activity in activities %}
+        <div class="row backend-list-element">
+            {% set foo = activity.training + activity.noCarbs + activity.noCandy + activity.noAlcohol %}
+            <div class="col-md-3 backend-list-element-data-center">
+                <span class="">{{ activity.date.format('d.m.Y') }}</span>
+            </div>
+            <div class="col-md-2 backend-list-element-data-center">
+                {% if activity.training == 0 %}
+                    <i class="far fa-circle "></i>
+                    <i class="far fa-circle "></i>
+                    <i class="far fa-circle "></i>
+                {% elseif activity.training == 1 %}
+                    <i class="fas fa-circle "></i>
+                    <i class="far fa-circle "></i>
+                    <i class="far fa-circle "></i>
+                {% elseif activity.training == 2 %}
+                    <i class="fas fa-circle "></i>
+                    <i class="fas fa-circle "></i>
+                    <i class="far fa-circle "></i>
+                {% elseif activity.training == 3 %}
+                    <i class="fas fa-circle "></i>
+                    <i class="fas fa-circle "></i>
+                    <i class="fas fa-circle "></i>
+                {% endif %}
+            </div>
+            <div class="col-md-1 backend-list-element-data-center">
+                {% if activity.noAlcohol %}
+                    <i class="fas fa-check-circle "></i>
+                {% else %}
+                    <i class="fas fa-times-circle "></i>
+                {% endif %}
+            </div>
+            <div class="col-md-1 backend-list-element-data-center">
+                {% if activity.noCandy %}
+                    <i class="fas fa-check-circle "></i>
+                {% else %}
+                    <i class="fas fa-times-circle "></i>
+                {% endif %}
+            </div>
+            <div class="col-md-1 backend-list-element-data-center">
+                {% if  activity.noCarbs %}
+                    <i class="fas fa-check-circle "></i>
+                {% else %}
+                    <i class="fas fa-times-circle "></i>
+                {% endif %}
+            </div>
+            <div class="col-md-4 backend-list-element-data-center">
+                {% if foo == 0 %}
+                    <i class="far fa-star "></i>
+                    <i class="far fa-star "></i>
+                    <i class="far fa-star "></i>
+                {% elseif foo == 1 %}
+                    <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                    <i class="far fa-star "></i>
+                    <i class="far fa-star "></i>
+                {% elseif foo == 2 %}
+                    <i class="fas fa-star "></i>
+                    <i class="far fa-star "></i>
+                    <i class="far fa-star "></i>
+                {% elseif foo == 3 %}
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                    <i class="far fa-star "></i>
+                {% elseif foo == 4 %}
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+                    <i class="far fa-star "></i>
+                {% elseif foo == 5 %}
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                {% else %}
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

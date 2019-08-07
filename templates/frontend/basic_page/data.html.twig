@@ -1,0 +1,84 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block jumbotron_md %}<h1>{{ title }}</h1>{% endblock %}
+
+{% block content_md_center %}
+    <div id="accordion">
+        <div class="card">
+            <a class="card-header acc_link" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Mission to Mars<span class="acc_rating"><i class="fab fa-hotjar"></i> 86</span>
+            </a>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                   <h5>Dos Equis - Mission to Mars</h5>
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, r
+                        aw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </p>
+                    <img src="{{ asset('images/coast01.jpg') }}" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <a class="card-header acc_link" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                No Fee <span class="acc_rating"><i class="fab fa-hotjar"></i> 83</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <h5>Barclay Card - No Fee</h5>
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, r
+                        aw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </p>
+                    <img src="{{ asset('images/coast02.jpg') }}" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <a class="card-header acc_link" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Too Immature<span class="acc_rating"><i class="fab fa-hotjar"></i> 82</span>
+            </a>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <h5>BMW M - Too Immature</h5>
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, r
+                        aw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </p>
+                    <img src="{{ asset('images/coast03.jpg') }}" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <a class="card-header acc_link" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Maxx Can<span class="acc_rating"><i class="fab fa-hotjar"></i> 1564</span>
+            </a>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                    <h5>Pepsi - Maxx Can</h5>
+                    <p>Bacon ipsum dolor amet brisket sausage boudin sirloin alcatra tail kielbasa doner. Spare ribs jowl beef ribs, cow t-bone kevin porchetta sausage picanha bacon ribeye. Sausage turducken short ribs hamburger meatloaf strip steak sirloin shoulder kevin tail. Meatball beef porchetta kevin pancetta sausage salami bacon cupim. Shankle biltong frankfurter cupim pork chop bresaola chuck leberkas t-bone kielbasa hamburger pork. Kevin strip steak jerky, salami ribeye beef ribs t-bone shoulder prosciutto venison.
+                    </p>
+                    <p>
+                        Shoulder turkey brisket meatball tongue. Shankle tail tenderloin beef ribs buffalo jerky cow pork loin bacon andouille fatback prosciutto kevin ham hock shoulder. Tongue ham hock pastrami drumstick chuck bacon shoulder tenderloin meatball cupim. Doner pastrami biltong spare ribs shank prosciutto ham pancetta boudin drumstick meatloaf. Ham pastrami frankfurter cow andouille short ribs rump ball tip picanha alcatra venison ham hock. Pig bresaola swine hamburger rump tri-tip spare ribs andouille shank brisket drumstick ground round pork belly ribeye. Pork chop pastrami meatloaf sirloin swine, pork porchetta beef t-bone meatball ham hock.
+                    </p>
+                    <p>
+                        Ham hock tongue jerky pastrami tenderloin short ribs cow pork belly. Ball tip ham sausage, pig kevin leberkas ground round burgdoggen short ribs porchetta turkey. Shoulder shankle ham hock kielbasa boudin chicken corned beef brisket. Sausage meatloaf pork belly tongue, shoulder doner burgdoggen strip steak boudin chicken buffalo rump prosciutto pork loin. Beef shoulder kielbasa sausage pancetta chicken venison filet mignon hamburger drumstick, bresaola kevin.
+                    </p>
+                    <img src="{{ asset('images/coast03.jpg') }}" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

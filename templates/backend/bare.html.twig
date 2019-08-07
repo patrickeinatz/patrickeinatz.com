@@ -1,0 +1,80 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('extensions/trumbowyg/dist/ui/trumbowyg.css') }}">
+        {% block stylesheets %}{% endblock %}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/fav/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/fav/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/fav/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('images/fav/site.webmanifest') }}">
+    </head>
+    <body class="bg-dark">
+    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+        <div class="alert alert-warning" style="margin-bottom: 0px">
+            You are currently switched to this user.
+            <a href="{{ path('log', {
+                '_switch_user': '_exit'
+            }) }}">Exit Impersonation</a>
+        </div>
+    {% endif %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-light default-color">
+        <a class="navbar-brand-light" href="{{ path('log') }}"><span> patrickeinatz<span class="navbar-brand-light-thin">.com</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+            {% if app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ path('backend_account') }}"><i class="fas fa-user-circle"></i> {{ app.user.firstname}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ path('log') }}"><i class="fas fa-adjust"></i> Frontend</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                        </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{{ path('log') }}"><i class="fas fa-adjust"></i> Frontend</a>
+                </li>
+            {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid container-dark">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-1">
+                {% include '/backend/menu/backend_sidebarNavigation.html.twig' %}
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                {% block content_bare %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+    <!-- /container -->
+    <script src="{{ asset('js/jquery.slim.min.js') }}"></script>
+    <script src="{{ asset('js/tether.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script src="{{ asset('extensions/trumbowyg/dist/trumbowyg.min.js') }}"></script>
+    <script src="{{ asset('js/news_article.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+    </body>
+</html>

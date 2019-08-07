@@ -227,8 +227,8 @@ a.hot:hover{
 
 .list-group-item{
     border-radius: 0!important;
-    background-color: #1d1e1f;
-    border: solid 1px #2a2c2e!important;
+    background-color: #111212;
+    border: none;
 }
 
 .list-group-item:hover{
@@ -238,7 +238,7 @@ a.hot:hover{
 
 .submenu{
     width: 100%;
-    border-top:solid 1px steelblue!important;
+    border: none;
     background-color: steelblue!important;
 }
 

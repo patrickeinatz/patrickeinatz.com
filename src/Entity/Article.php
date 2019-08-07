@@ -179,7 +179,7 @@ class Article
 
     public function getArticlePath()
     {
-        return '/news/'.$this->getSlug();
+        return '/log/'.$this->getSlug();
     }
 
     public function incrementLikes(): self
