@@ -31,6 +31,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.bg-dark{
+    background-color: #1d1e1f!important;
+    color: #ffffff;
+}
+
 h1{
     font-family: "Helvetica Neue", sans-serif;
     font-size: 60px;
@@ -45,11 +50,11 @@ h2, h3, h4 {
 }
 
 a{
-    color: #028e8a;
+    color: dodgerblue;
 }
 
 a:hover{
-    color: #033d3b;
+    color: steelblue;
     text-decoration: none;
 }
 
@@ -60,15 +65,28 @@ a:hover{
 }
 
 .navbar-brand{
+    font-size: 20px;
     color: #1d1e1f!important;
     font-family: "Helvetica Neue Heavy", sans-serif;
 }
 
 .navbar-brand-thin{
+    font-size: 20px;
     font-family: "Helvetica Neue Light", sans-serif;
     text-transform: lowercase;
 }
 
+.navbar-brand-light{
+    font-size: 20px;
+    color: #ffffff!important;
+    font-family: "Helvetica Neue Heavy", sans-serif;
+}
+
+.navbar-brand-light-thin{
+    font-size: 20px;
+    font-family: "Helvetica Neue Light", sans-serif;
+    text-transform: lowercase;
+}
 .bg-inverse{
     background-color: #1d1e1f!important;
 }
@@ -76,20 +94,67 @@ a:hover{
 .jumbotron{
     color: #ffffff;
     background-color: #1d1e1f;
-    border-radius: 0px!important;
+    border-radius: 0!important;
 }
 
 form{
     border-radius: 0;
+    border: none;
 }
 
-.form{
-    /*border: 1px solid #ddd;*/
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    padding: 43px 50px 50px 50px;
-    margin-top: 100px;
+.form-card{
+    border-radius: 0;
+    border: none;
+    margin: 100px auto;
+    width: 26rem;
+}
+
+.form-control{
+    border: solid 1px #2a2c2e;
+    border-radius: 0;
+    background-color: #111212;
+}
+
+.form-control:focus{
+    border: solid 1px dodgerblue;
+    border-radius: 0;
+    background-color: #111212;
+}
+
+.custom-file-input + label {
+    border: solid 1px #2a2c2e;
+    border-radius: 0;
+    background-color: #111212;
+    display: inline-block;
+}
+
+.custom-file-input:focus + label,
+.custom-file-input + label:hover {
+    border: solid 1px dodgerblue;
+    border-radius: 0;
+    background-color: #111212;
+}
+
+.custom-file-label::after {
+    color: #cccccc;
+    border-radius: 0;
+    background-color: #2a2c2e;
+}
+
+
+.backend-table{
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.backend-table td, .backend-table th {
+    padding: .5rem;
+    border-top: dashed 1px #2a2c2e;
+}
+
+.backend-table thead th {
+    border-bottom: none!important;
+    background-color: #111212;
 }
 
 .login-button{
@@ -117,8 +182,9 @@ form{
 .form-input{
     font-family: "Helvetica Neue Light", sans-serif;
     margin-bottom: 15px;
-    border-radius: 0px;
-    border-color: #aaa;
+    border-radius: 0;
+    color: #2a2c2e;
+    border:solid 1px #2a2c2e;
 }
 .form-input::placeholder{
     color: #aaa;
@@ -155,51 +221,77 @@ a.hot:hover{
     color: #d58512;
 }
 
+#MainMenu{
+    min-width: 120px;
+}
+
 .list-group-item{
     border-radius: 0!important;
+    background-color: #111212;
     border: none;
-    margin: 5px;
-    padding: 1px;
 }
 
-.activity-element{
-    font-size: 13px;
-    margin-bottom: 0px;
+.list-group-item:hover{
+    background-color: dodgerblue;
+    color: #1d1e1f;
 }
 
-.activity-element-header{
+.submenu{
+    width: 100%;
+    border: none;
+    background-color: steelblue!important;
+}
+
+.backend-list-element{
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.backend-list-element-header-center{
     text-align: center;
-    background-color: #1d1e1f;
     color: #fff;
-    padding: 5px 0;
-    border-right: solid 1px #ffffff;
+    background-color: #2a2c2e;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
     margin-bottom: 1px;
 }
 
+.backend-list-element-header{
+    text-align: left;
+    color: #fff;
+    background-color: #2a2c2e;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
+    margin-bottom: 1px;
+}
 
-.activity-element-data{
+.backend-list-element-data-center{
     text-align: center;
-    background-color: #efefef;
-    padding: 5px 0;
-    border-right: solid 1px #ffffff;
+    color: #fff;
+    background-color: #111212;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
     margin-bottom: 1px;
 }
 
-.log-element{
-    font-size: 13px;
+.backend-list-element-data{
+    text-align: left;
+    color: #fff;
+    background-color: #111212;
+    padding: 5px 10px;
+    border-right: solid 1px #1d1e1f;
+    margin-bottom: 1px;
+}
+
+.backend-list-element-control{
+    padding: 0;
+    border-right: solid 1px #1d1e1f;
 }
 
 .log-element-data{
     text-align: center;
-    background-color: #efefef;
     padding: 5px 0;
-    border-right: solid 1px #ffffff;
     margin-bottom: 1px;
-}
-
-.log-element-data-button{
-    padding: 0;
-    border-right: solid 1px #ffffff;
 }
 
 .data-title{
@@ -331,15 +423,15 @@ footer{
     margin-top: -4px;
     margin-bottom: 10px;
     width: 100%;
-    background-color: mediumseagreen;
-    color: #1d1e1f;
+    background-color: #111212;
+    color: #2a2c2e;
     border-radius: 0;
-    border: none;
+    border:solid 1px #2a2c2e;
 }
 
 .sub-tool:hover{
-    background-color: limegreen;
-    color: #1d1e1f;
+    color: #cccccc;
+    background-color: #2a2c2e;
 }
 
 .sub-tool-inline{
@@ -352,8 +444,16 @@ footer{
 }
 
 .sub-tool-inline:hover{
-    background-color: limegreen;
+    background-color: mediumseagreen;
     color: #1d1e1f;
+}
+
+.suc{
+    background-color:  indianred;
+}
+
+.suc:hover{
+    background-color: limegreen;;
 }
 
 .del{

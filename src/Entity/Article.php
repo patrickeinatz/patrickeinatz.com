@@ -82,6 +82,11 @@ class Article
      */
     private $audio_file;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $excerpt;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -174,7 +179,7 @@ class Article
 
     public function getArticlePath()
     {
-        return '/news/'.$this->getSlug();
+        return '/log/'.$this->getSlug();
     }
 
     public function incrementLikes(): self
@@ -288,6 +293,18 @@ class Article
     public function setAudioFile(?string $audio_file): self
     {
         $this->audio_file = $audio_file;
+
+        return $this;
+    }
+
+    public function getExcerpt(): ?string
+    {
+        return $this->excerpt;
+    }
+
+    public function setExcerpt(?string $excerpt): self
+    {
+        $this->excerpt = $excerpt;
 
         return $this;
     }
