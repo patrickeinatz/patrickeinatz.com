@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class NewsAdminController
+ * Class BackendLogController
  * @package App\Controller*
  */
 
@@ -22,7 +22,7 @@ class BackendLogController extends AbstractController
 {
     /**
      * @Route("/backend/log", name="backend_log")
-     * @IsGranted("ROLE_ADMIN_NEWS")
+     * @IsGranted("ROLE_ADMIN_LOG")
      */
     public function index(ArticleRepository $articleRepository)
     {
@@ -36,7 +36,7 @@ class BackendLogController extends AbstractController
 
     /**
      * @Route("/backend/log/create", name="backend_log_create")
-     * @IsGranted("ROLE_ADMIN_NEWS")
+     * @IsGranted("ROLE_ADMIN_LOG")
      */
     public function new(EntityManagerInterface $em, Request $request, FileUploader $fileUploader)
     {
