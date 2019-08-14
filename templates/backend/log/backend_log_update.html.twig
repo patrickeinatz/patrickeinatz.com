@@ -2,6 +2,7 @@
 
 {% block title %}{{ title }}{% endblock %}
 {% block content_bare%}
+        <a href="{{ path('backend_log') }}" class="btn btn-sm btn-outline-warning float-right"><i class="fas fa-backspace"></i> Cancel</a>
         <h1>Logbook - edit</h1>
         {{ include('backend/log/_form.html.twig', {
                 button_text: 'update'

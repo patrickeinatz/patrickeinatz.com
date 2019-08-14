@@ -22,9 +22,10 @@ class BackendActivityController extends AbstractController
      */
     public function index(ActivityRepository $activityRepository)
     {
-        $activities = $activityRepository->findBy([
-            'user' => $this->getUser()->getId()
-        ]);
+        $activities = $activityRepository->findBy(
+            array('user' => $this->getUser()->getId()),
+            array('date' => 'ASC')
+        );
 
         return $this->render('backend/activity/backend_activity.html.twig', [
             'title' => 'Activity Manager',
@@ -58,5 +59,19 @@ class BackendActivityController extends AbstractController
             'title' => 'New Activity Track',
             'activityForm' => $form->createView()
         ]);
+    }
+
+
+    /**
+     * @param $a
+     * @param $b
+     * @return int
+     */
+    function cmp($a, $b)
+    {
+        if ($a == $b) {
+            return 0;
+        }
+        return ($a < $b) ? -1 : 1;
     }
 }

@@ -2,8 +2,106 @@
 
 {% block title %}{{ title }}{% endblock %}
     {% block content_bare%}
-                <a href="{{ path('backend_activity_create') }}" class="btn btn-sm btn-outline-primary float-right {{ '/activity' in app.request.pathInfo ? 'active'}}"><i class="fa fa-plus-circle"></i> Add</a>
+                <a href="{{ path('backend_activity_create') }}" class="btn btn-sm btn-outline-success float-right"><i class="fa fa-plus-circle"></i> Create</a>
         <h1>Activity</h1>
+        <div class="row">
+            <div class="col-md-12">
+                {{ dump() }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card text-white bg-dark border-light">
+                    <div class="card-header text-center text-uppercase border-light">Days Tracked</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ activities|length }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card text-white bg-dark border-light">
+                    <div class="card-header text-center text-uppercase border-light">Rating</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">
+                            {% set rating = 0 %}
+                            {% for activity in activities %}
+                                {% set rating = activity.training + activity.noCarbs + activity.noCandy + activity.noAlcohol + rating %}
+                            {% endfor %}
+                            {% set ratingAvg = (rating / activities|length)|number_format(2, '.', ',') %}
+                            {% if ratingAvg < 1 %}
+                                <i class="far fa-star "></i>
+                                <i class="far fa-star "></i>
+                                <i class="far fa-star "></i>
+                            {% elseif ratingAvg >= 1 and ratingAvg < 2 %}
+                                <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                                <i class="far fa-star "></i>
+                                <i class="far fa-star "></i>
+                            {% elseif ratingAvg >= 2 and ratingAvg < 3 %}
+                                <i class="fas fa-star "></i>
+                                <i class="far fa-star "></i>
+                                <i class="far fa-star "></i>
+                            {% elseif ratingAvg >= 3 and ratingAvg < 4 %}
+                                <i class="fas fa-star "></i>
+                                <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                                <i class="far fa-star "></i>
+                            {% elseif ratingAvg >= 4 and ratingAvg < 5 %}
+                                <i class="fas fa-star "></i>
+                                <i class="fas fa-star "></i>
+                                <i class="far fa-star "></i>
+                            {% elseif ratingAvg >= 5 and ratingAvg < 6 %}
+                                <i class="fas fa-star "></i>
+                                <i class="fas fa-star "></i>
+                                <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                            {% else %}
+                                <i class="fas fa-star "></i>
+                                <i class="fas fa-star "></i>
+                                <i class="fas fa-star "></i>
+                            {% endif %}
+                        </h5>
+                        {{ ratingAvg }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card text-white bg-dark border-light">
+                <div class="card-header text-center text-uppercase border-light">Score</div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ rating }}</h5>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card text-white bg-dark border-light">
+                    <div class="card-header text-center text-uppercase border-light">Commit streak</div>
+                    <div class="card-body text-center">
+                        <p>Days in a row without gaps in the tracking data</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card text-white bg-dark border-light">
+                    <div class="card-header text-center text-uppercase border-light">Sober streak</div>
+                    <div class="card-body text-sm-center">
+                        <p>Days in a row without alcohol <br>
+                        <small>record (longest streak)</small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card text-white bg-dark border-light">
+                    <div class="card-header text-center text-uppercase border-light">sugar free streak</div>
+                    <div class="card-body text-sm-center">
+                        <p>Days in a row without sugar <br>
+                            <small>record (longest streak)</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 50px;">
+                <h3>Records</h3>
+            </div>
+        </div>
         <div class="row backend-list-element">
             <div class="col-md-3 backend-list-element-header-center"><i class="fas fa-calendar-alt"></i></div>
             <div class="col-md-2 backend-list-element-header-center"><i class="fas fa-running"></i></div>
@@ -13,7 +111,7 @@
             <div class="col-md-4 backend-list-element-header-center"><i class="fas fa-medal"></i></div>
         </div>
 
-    {% for activity in activities %}
+    {% for activity in activities%}
         <div class="row backend-list-element">
             {% set foo = activity.training + activity.noCarbs + activity.noCandy + activity.noAlcohol %}
             <div class="col-md-3 backend-list-element-data-center">

@@ -2,6 +2,7 @@
 
 {% block title %}{{ title }}{% endblock %}
     {% block content_bare%}
+        <a href="{{ path('backend_activity') }}" class="btn btn-sm btn-outline-warning float-right"><i class="fas fa-backspace"></i> Cancel</a>
     <h1>Activity - add</h1>
     {{ form_start(activityForm) }}
     {{ form_row(activityForm.date) }}
@@ -10,6 +11,6 @@
     {{ form_row(activityForm.no_candy) }}
     {{ form_row(activityForm.no_carbs) }}
     {{ form_row(activityForm.comment) }}
-    <button type="submit" class="btn btn-primary">create</button>
+    <button type="submit" class="btn btn-sm btn-outline-primary">create</button>
     {{ form_end(activityForm) }}
 {% endblock %}
