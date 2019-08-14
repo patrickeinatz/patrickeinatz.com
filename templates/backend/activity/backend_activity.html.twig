@@ -2,6 +2,7 @@
 
 {% block title %}{{ title }}{% endblock %}
     {% block content_bare%}
+                <a href="{{ path('backend_activity_create') }}" class="btn btn-sm btn-outline-primary float-right {{ '/activity' in app.request.pathInfo ? 'active'}}"><i class="fa fa-plus-circle"></i> Add</a>
         <h1>Activity</h1>
         <div class="row backend-list-element">
             <div class="col-md-3 backend-list-element-header-center"><i class="fas fa-calendar-alt"></i></div>

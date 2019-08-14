@@ -225,23 +225,6 @@ a.hot:hover{
     min-width: 120px;
 }
 
-.list-group-item{
-    border-radius: 0!important;
-    background-color: #111212;
-    border: none;
-}
-
-.list-group-item:hover{
-    background-color: dodgerblue;
-    color: #1d1e1f;
-}
-
-.submenu{
-    width: 100%;
-    border: none;
-    background-color: steelblue!important;
-}
-
 .backend-list-element{
     font-size: 14px;
     margin-bottom: 0;

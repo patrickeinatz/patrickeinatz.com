@@ -46,7 +46,7 @@ class NewsVoter extends Voter
                    return true;
                 }
 
-                if($this->security->isGranted('ROLE_ADMIN_NEWS')){
+                if($this->security->isGranted('ROLE_ADMIN_LOG')){
                     return true;
                 }
 

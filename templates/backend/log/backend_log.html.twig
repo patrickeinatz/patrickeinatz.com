@@ -2,6 +2,9 @@
 
 {% block title %}{{ title }}{% endblock %}
 {% block content_bare%}
+        {% if '/log' in app.request.pathInfo or '/comment' in app.request.pathInfo %}
+                <a href="{{ path('backend_log_create') }}" class="btn btn-sm btn-primary float-right  { '/log' in app.request.pathInfo  ? 'active'}}{{ '/comment' in app.request.pathInfo  ? 'active'}}"><i class="fa fa-plus-circle"></i> Create</a>
+        {% endif %}
         <h1>Logbook</h1>
         <div class="row backend-list-element">
                 <div class="col-md-6 backend-list-element-header">Title</div>
