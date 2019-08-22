@@ -420,30 +420,12 @@ footer{
 .sub-tool-inline{
     margin: 0;
     width: 100%;
-    background-color: mediumseagreen;
     color: #1d1e1f;
     border-radius: 0;
     border: none;
 }
 
 .sub-tool-inline:hover{
-    background-color: mediumseagreen;
     color: #1d1e1f;
-}
-
-.suc{
-    background-color:  indianred;
-}
-
-.suc:hover{
-    background-color: limegreen;;
-}
-
-.del{
-    background-color:  indianred;
-}
-
-.del:hover{
-    background-color: red;
 }
 

@@ -27,38 +27,44 @@
                             {% for activity in activities %}
                                 {% set rating = activity.training + activity.noCarbs + activity.noCandy + activity.noAlcohol + rating %}
                             {% endfor %}
-                            {% set ratingAvg = (rating / activities|length)|number_format(2, '.', ',') %}
-                            {% if ratingAvg < 1 %}
-                                <i class="far fa-star "></i>
-                                <i class="far fa-star "></i>
-                                <i class="far fa-star "></i>
-                            {% elseif ratingAvg >= 1 and ratingAvg < 2 %}
-                                <i class="fas fa-star-half-alt " style="width: 18px"></i>
-                                <i class="far fa-star "></i>
-                                <i class="far fa-star "></i>
-                            {% elseif ratingAvg >= 2 and ratingAvg < 3 %}
-                                <i class="fas fa-star "></i>
-                                <i class="far fa-star "></i>
-                                <i class="far fa-star "></i>
-                            {% elseif ratingAvg >= 3 and ratingAvg < 4 %}
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star-half-alt " style="width: 18px"></i>
-                                <i class="far fa-star "></i>
-                            {% elseif ratingAvg >= 4 and ratingAvg < 5 %}
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star "></i>
-                                <i class="far fa-star "></i>
-                            {% elseif ratingAvg >= 5 and ratingAvg < 6 %}
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                            {% if rating != 0 %}
+                                {% set ratingAvg = (rating / activities|length)|number_format(2, '.', ',') %}
+                                {% if ratingAvg < 1 %}
+                                    <i class="far fa-star "></i>
+                                    <i class="far fa-star "></i>
+                                    <i class="far fa-star "></i>
+                                {% elseif ratingAvg >= 1 and ratingAvg < 2 %}
+                                    <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                                    <i class="far fa-star "></i>
+                                    <i class="far fa-star "></i>
+                                {% elseif ratingAvg >= 2 and ratingAvg < 3 %}
+                                    <i class="fas fa-star "></i>
+                                    <i class="far fa-star "></i>
+                                    <i class="far fa-star "></i>
+                                {% elseif ratingAvg >= 3 and ratingAvg < 4 %}
+                                    <i class="fas fa-star "></i>
+                                    <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                                    <i class="far fa-star "></i>
+                                {% elseif ratingAvg >= 4 and ratingAvg < 5 %}
+                                    <i class="fas fa-star "></i>
+                                    <i class="fas fa-star "></i>
+                                    <i class="far fa-star "></i>
+                                {% elseif ratingAvg >= 5 and ratingAvg < 6 %}
+                                    <i class="fas fa-star "></i>
+                                    <i class="fas fa-star "></i>
+                                    <i class="fas fa-star-half-alt " style="width: 18px"></i>
+                                {% else %}
+                                    <i class="fas fa-star "></i>
+                                    <i class="fas fa-star "></i>
+                                    <i class="fas fa-star "></i>
+                                {% endif %}
                             {% else %}
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star "></i>
+                            -
                             {% endif %}
                         </h5>
+                        {% if rating != 0 %}
                         {{ ratingAvg }}
+                        {% endif %}
                     </div>
                 </div>
             </div>

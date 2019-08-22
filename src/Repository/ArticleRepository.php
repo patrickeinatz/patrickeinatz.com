@@ -67,4 +67,5 @@ class ArticleRepository extends ServiceEntityRepository
     {
         return $qb ?: $this->createQueryBuilder('a');
     }
+
 }

@@ -42,7 +42,10 @@
                         <a class="nav-link text-light" href="{{ path('backend_log') }}"><i class="fas fa-book-dead"></i> Logbook</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('backend_comment') }}" class="nav-link text-light {{ '/log' in app.request.pathInfo  ? 'active'}}{{ '/comment' in app.request.pathInfo  ? 'active'}}"><i class="far fa-comments"></i> Comments</a>
+                        <a href="{{ path('backend_comment') }}" class="nav-link text-light {{ '/comment' in app.request.pathInfo  ? 'active'}}"><i class="fas fa-comments"></i> Comments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('backend_tags') }}" class="nav-link text-light {{ '/tags' in app.request.pathInfo  ? 'active'}}"> <i class="fas fa-tags"></i> Tags</a>
                     </li>
                 {% endif %}
                 <li class="nav-item">

@@ -21,21 +21,21 @@
         <span>RESULTS: {{ pagination.getTotalItemCount }}</span>
         <br><br>
         <div class="row backend-list-element">
-                <div class="col-md-3 backend-list-element-header">Article</div>
+                <div class="col-md-2 backend-list-element-header">Article</div>
                 <div class="col-md-2 backend-list-element-header">Author</div>
-                <div class="col-md-4 backend-list-element-header">Comment</div>
+                <div class="col-md-5 backend-list-element-header">Comment</div>
                 <div class="col-md-1 backend-list-element-header-center">Created At</div>
-                <div class="col-md-1 backend-list-element-header-center">approve</div>
-                <div class="col-md-1 backend-list-element-header-center">delete</div>
+                <div class="col-md-1 backend-list-element-header-center"></div>
+                <div class="col-md-1 backend-list-element-header-center"></div>
         </div>
         {% for comment in pagination %}
         <div class="row backend-list-element">
-                <div class="col-md-3 backend-list-element-data"><a href="{{ path('log', {slug: comment.article.slug}) }}">{{ comment.article.title }}</a></div>
+                <div class="col-md-2 backend-list-element-data"><a href="{{ path('log', {slug: comment.article.slug}) }}">{{ comment.article.title|truncate(15,true,'...') }}</a></div>
                 <div class="col-md-2 backend-list-element-data">{{ comment.authorName }}</div>
-                <div class="col-md-4 backend-list-element-data">{{ comment.content|truncate(30,true,'...') }}</div>
+                <div class="col-md-5 backend-list-element-data">{{ comment.content }}</div>
                 <div class="col-md-1 backend-list-element-data-center">{{ comment.createdAt|ago }}</div>
-                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline" href="#"><i class="fas fa-check-circle"></i></a></div>
-                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline del" href="#"><i class="fas fa-trash-alt"></i></a></div>
+                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline bg-primary" href="#"><i class="fas fa-check-circle"></i></a></div>
+                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline bg-danger" href="#"><i class="fas fa-trash-alt"></i></a></div>
         </div>
         {% else %}
         <div class="row backend-list-element">

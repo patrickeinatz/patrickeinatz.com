@@ -5,19 +5,17 @@
                 <a href="{{ path('backend_log_create') }}" class="btn btn-sm btn-outline-success float-right"><i class="fa fa-plus-circle"></i> Create</a>
         <h1>Logbook</h1>
         <div class="row backend-list-element">
-                <div class="col-md-6 backend-list-element-header">Title</div>
-                <div class="col-md-3 backend-list-element-header">Author</div>
+                <div class="col-md-9 backend-list-element-header">Title</div>
                 <div class="col-md-1 backend-list-element-header-center">published</div>
                 <div class="col-md-1 backend-list-element-header-center"></div>
                 <div class="col-md-1 backend-list-element-header-center"></div>
         </div>
         {% for article in articles %}
         <div class="row backend-list-element">
-                <div class="col-md-6 backend-list-element-data">{{ article.title }}</div>
-                <div class="col-md-3 backend-list-element-data">{{ article.author.firstName }}</div>
-                <div class="col-md-1 backend-list-element-data-center"><span class="fa fa-{{ article.isPublished ? 'check-circle' : 'stopwatch' }} text-secondary"></span></div>
-                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline" href="{{ path('backend_log_update', { id: article.id}) }}"><i class="fas fa-pencil-alt"></i></a></div>
-                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline del" href="#"><i class="fas fa-trash-alt"></i></a></div>
+                <div class="col-md-9 backend-list-element-data">{{ article.title }}</div>
+                <div class="col-md-1 backend-list-element-data-center"><span class="fa fa-{{ article.isPublished ? 'check-circle text-success' : 'stopwatch text-secondary' }}"></span></div>
+                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline bg-primary text-light" href="{{ path('backend_log_update', { id: article.id}) }}"> Edit</a></div>
+                <div class="col-md-1 backend-list-element-control"><a class="btn btn-sm sub-tool-inline bg-danger text-light" href="{{ path('backend_log_delete', { id: article.id}) }}"> Delete</a></div>
         </div>
         {% endfor %}
 {% endblock %}

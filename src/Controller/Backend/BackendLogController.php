@@ -5,6 +5,7 @@ namespace App\Controller\Backend;
 use App\Entity\Article;
 use App\Form\ArticleFormType;
 use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use App\Services\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -104,5 +105,37 @@ class BackendLogController extends AbstractController
             'title' => 'Edit Log-Entry',
             'articleForm' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @param $id
+     * @param ArticleRepository $articleRepository
+     * @param EntityManagerInterface $em
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @Route("/backend/log/{id}/delete", name="backend_log_delete")
+     * @IsGranted("ROLE_ADMIN_LOG")
+     *
+     */
+    public function delete($id, ArticleRepository $articleRepository, CommentRepository $commentRepository, EntityManagerInterface $em)
+    {
+        $article = $articleRepository->find($id);
+
+        if (!$article) {
+            $this->addFlash('error', 'Log-Entry not found!');
+        }
+
+        $comments = $commentRepository->findBy(['article' => $article]);
+
+        foreach($comments as $comment){
+            $em->remove($comment);
+            $em->flush();
+        }
+
+        $em->remove($article);
+        $em->flush();
+
+        $this->addFlash('success', sprintf('Log-Entry and %d corrensponding comments deleted!', sizeof($comments)));
+        return $this->redirectToRoute('backend_log');
     }
 }
