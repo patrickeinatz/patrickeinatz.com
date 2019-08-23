@@ -19,11 +19,6 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $authorName;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $content;
@@ -37,23 +32,16 @@ class Comment
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isDeleted = false;
+    private $isApproved = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPublic = false;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAuthorName(): ?string
-    {
-        return $this->authorName;
-    }
-
-    public function setAuthorName(string $authorName): self
-    {
-        $this->authorName = $authorName;
-
-        return $this;
     }
 
     public function getContent(): ?string
@@ -80,14 +68,26 @@ class Comment
         return $this;
     }
 
-    public function getIsDeleted(): ?bool
+    public function getIsApproved(): ?bool
     {
-        return $this->isDeleted;
+        return $this->isApproved;
     }
 
-    public function setIsDeleted(bool $isDeleted): self
+    public function setIsApproved(bool $isApproved): self
     {
-        $this->isDeleted = $isDeleted;
+        $this->isApproved = $isApproved;
+
+        return $this;
+    }
+
+    public function getIsPublic(): ?bool
+    {
+        return $this->isPublic;
+    }
+
+    public function setIsPublic(bool $isPublic): self
+    {
+        $this->isPublic = $isPublic;
 
         return $this;
     }

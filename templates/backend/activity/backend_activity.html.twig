@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <div class="card text-white bg-dark border-light">
                     <div class="card-header text-center text-uppercase border-light">Days Tracked</div>
                     <div class="card-body text-center">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <div class="card text-white bg-dark border-light">
                     <div class="card-header text-center text-uppercase border-light">Rating</div>
                     <div class="card-body text-center">
@@ -61,22 +61,25 @@
                             {% else %}
                             -
                             {% endif %}
+                            {% if rating != 0 %}
+                                <small>({{ ratingAvg }})</small>
+                            {% endif %}
                         </h5>
-                        {% if rating != 0 %}
-                        {{ ratingAvg }}
-                        {% endif %}
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <div class="card text-white bg-dark border-light">
-                <div class="card-header text-center text-uppercase border-light">Score</div>
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{ rating }}</h5>
+                    <div class="card-header text-center text-uppercase border-light">Score</div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ rating }}</h5>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div class="col-md-2">
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-4">
                 <div class="card text-white bg-dark border-light">
                     <div class="card-header text-center text-uppercase border-light">Commit streak</div>
                     <div class="card-body text-center">
@@ -84,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <div class="card text-white bg-dark border-light">
                     <div class="card-header text-center text-uppercase border-light">Sober streak</div>
                     <div class="card-body text-sm-center">
@@ -93,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <div class="card text-white bg-dark border-light">
                     <div class="card-header text-center text-uppercase border-light">sugar free streak</div>
                     <div class="card-body text-sm-center">

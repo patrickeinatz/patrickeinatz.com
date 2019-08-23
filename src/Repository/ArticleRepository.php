@@ -37,10 +37,11 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
 
-    public static function createNonDeletedCriteria():Criteria
+    public static function createApprovedPublicCriteria():Criteria
     {
         return Criteria::create()
-            ->andWhere(Criteria::expr()->eq('isDeleted', false))
+            ->andWhere(Criteria::expr()->eq('isApproved', true))
+            ->andWhere(Criteria::expr()->eq('isPublic', true))
             ->orderBy(['createdAt' => 'DESC']);
     }
 

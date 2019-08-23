@@ -59,9 +59,14 @@ class ArticleFormType extends AbstractType
                 'constraints' => $audioConstraints
             ])
             ->add('content', TextareaType::class, [
-            'attr' => ['class' => 'trumbowyg']
+                'attr' => ['class' => 'trumbowyg']
             ])
-            ->add('excerpt', TextareaType::class)
+            ->add('excerpt', TextareaType::class, [
+                'attr' => [
+                    'maxlength' => 255,
+                    'onkeyup' => 'textCounter(this,"counter", 255)',
+                ]
+            ])
             ->add('publishedAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])

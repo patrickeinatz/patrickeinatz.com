@@ -10,7 +10,8 @@
     <div class="trumbowyg-dark">
     {{ form_row(articleForm.content) }}
     </div>
-    {{ form_row(articleForm.excerpt) }}
+    {{ form_row(articleForm.excerpt, {'attr' : {'class' : 'excerpt'}}) }}
+    <small class="textcounter text-secondary float-right" id="counter">255</small>
     {{ form_row(articleForm.publishedAt) }}
     <button type="submit" class="btn btn-sm sub-tool"><i class="fa fa-plus-circle"></i> {{ button_text }}</button>
 {{ form_end(articleForm) }}

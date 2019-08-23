@@ -123,6 +123,7 @@ class BackendLogController extends AbstractController
 
         if (!$article) {
             $this->addFlash('error', 'Log-Entry not found!');
+            return $this->redirectToRoute('backend_log');
         }
 
         $comments = $commentRepository->findBy(['article' => $article]);

@@ -3,7 +3,6 @@
 {% block title %}{{ article.title }}{% endblock %}
 
     {% block jumbotron_sm %}<h1>{{ article.title }}</h1>{% endblock %}
-
 {% block content_sm_left %}
     <div class="news_article_info">
         <p>
@@ -40,17 +39,18 @@
     <p>
     {{ article.content|cached_markdown }}
     </p>
-    <h5>{{ article.nonDeletedComments|length }} Comments</h5>
+    <h5>{{ article.ApprovedPublicComments|length }} Comments</h5>
     <hr>
     <div class="row">
-        {% for comment in article.nonDeletedComments %}
+        {% for comment in article.ApprovedPublicComments %}
         <p>
-            <div class="col-md-1">
-                IMG
-            </div>
-            <div class="col-md-11">
-                <span class="bolder">{{ comment.authorName }}</span> ~ <span><small> {{ comment.createdAt|ago }} </small></span><br>
-                <span>{{ comment.content }}</span>
+            <div class="col-md-12">
+                <div class="card border-0 bg-light">
+                    <div class="card-body border-0">
+                    <span>{{ comment.content }}</span>
+                    <span class="font-italic float-right"><small> {{ comment.createdAt|ago }} </small></span>
+                    </div>
+                </div>
             </div>
         </p>
         {% endfor %}

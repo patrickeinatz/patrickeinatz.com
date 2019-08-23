@@ -192,9 +192,9 @@ class Article
     /**
      * @return Collection|Comment[]
      */
-    public function getNonDeletedComments(): Collection
+    public function getApprovedPublicComments(): Collection
     {
-        $criteria = ArticleRepository::createNonDeletedCriteria();
+        $criteria = ArticleRepository::createApprovedPublicCriteria();
 
         return $this->comments->matching($criteria);
     }
