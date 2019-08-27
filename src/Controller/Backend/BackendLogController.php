@@ -45,7 +45,6 @@ class BackendLogController extends AbstractController
 
         $form->handleRequest($request);
 
-
         if($form->isSubmitted() && $form->isValid()){
 
             /** @var Article $article */

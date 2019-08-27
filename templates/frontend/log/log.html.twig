@@ -2,9 +2,11 @@
 
 {% block title %}{{ title }}{% endblock %}
 {% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/timeline.css') }}">{% endblock %}
-{% block jumbotron_md %}<h1>{{ title }}</h1>{% endblock %}
+{% block jumbotron %}
+    <h1>{{ title }}</h1>
+{% endblock %}
 
-{% block content_md_center %}
+{% block content %}
     <ul class="timeline timeline-centered">
         {% for article in articles %}
             <li class="timeline-item">

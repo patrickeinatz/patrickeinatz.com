@@ -2,58 +2,94 @@
 
 {% block title %}{{ article.title }}{% endblock %}
 
-    {% block jumbotron_sm %}<h1>{{ article.title }}</h1>{% endblock %}
-{% block content_sm_left %}
-    <div class="news_article_info">
-        <p>
-            <small>{{ article.publishedAt|ago}}</small><br>
-            <small>by {{ article.author.firstName }}</small><br>
-            {% if article.tags.count > 0 %}
-            <br>
-            <small>
-                {% for tag in article.tags %}
-                    <i class="fas fa-tags"></i>&nbsp;{{ tag.name }}<br>
-                {% endfor %}
-            </small>
-            {% endif %}
-        </p>
-        <p>
-            <a href="{{ path('log_toggleLits', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
-        </p>
-    </div>
-{% endblock %}
-
-{% block content_sm_center %}
+    {% block jumbotron %}
     <div class="row">
-        <div class="col-md-2">
-            <i class="fas fa-play-circle fa-4x"
-               id="playbutton"
-               style="float:left; margin-top: 5px; color: #cccccc;"
-               onclick="togglePlay()"
-               onmouseover="mouseOver()"
-               onmouseout="mouseOut()"
-            ></i></div>
-        <div class="col-md-10"><div id="waveform"></div></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>{{ article.title }}</h1>
+        </div>
+        <div class="col-md-2"></div>
     </div>
+    {% endblock %}
 
-    <p>
-    {{ article.content|cached_markdown }}
-    </p>
-    <h5>{{ article.ApprovedPublicComments|length }} Comments</h5>
-    <hr>
+{% block content %}
     <div class="row">
-        {% for comment in article.ApprovedPublicComments %}
-        <p>
-            <div class="col-md-12">
-                <div class="card border-0 bg-light">
-                    <div class="card-body border-0">
-                    <span>{{ comment.content }}</span>
-                    <span class="font-italic float-right"><small> {{ comment.createdAt|ago }} </small></span>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <p>
+                <small class="text-secondary">
+                    <i>written {{ article.publishedAt|ago}}</i> <i>by {{ article.author.firstName }}</i>
+                    {% if article.tags.count > 0 %}
+                    <i>
+                        {% for tag in article.tags %}
+                            <i class="fas fa-tags"></i>&nbsp;{{ tag.name }}
+                        {% endfor %}
+                    </i>
+                    {% endif %}
+                </small>
+                <span class="float-right">
+                    <a href="{{ path('log_toggleLits', {slug: article.slug}) }}" class="fab fa-hotjar cold like-article js-like-article"></a> <span class="js-like-article-count">{{ article.likes }}</span>
+                </span>
+            </p>
+            <!-- AUDIO CONTENT IF AVAILABLE -->
+            {% if article.audioFile  %}
+                <div class="row log-audioplayer" style="margin: 10px 0;">
+                    <div class="col-md-2">
+                        <i class="fas fa-play-circle fa-4x"
+                           id="playbutton"
+                           style="float:left; margin-top: 5px; color: #cccccc;"
+                           onclick="togglePlay()"
+                           onmouseover="mouseOver()"
+                           onmouseout="mouseOut()"
+                        ></i>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="waveform"></div>
                     </div>
                 </div>
+            {% endif %}
+            <!-- AUDIO CONTENT END -->
+        <div class="text-justify">
+            {{ article.content|cached_markdown }}
+        </div>
+                {% if article.ApprovedPublicComments|length == 1  %}
+                    <h5>{{ article.ApprovedPublicComments|length }} comment so far, <a data-toggle="collapse" href="#collapseCommentForm" role="button" aria-expanded="false" aria-controls="collapseCommentForm">write your own</a></h5>
+                {% else %}
+                    <h5>{{ article.ApprovedPublicComments|length }} comments so far, <a data-toggle="collapse" href="#collapseCommentForm" role="button" aria-expanded="false" aria-controls="collapseCommentForm">write your own</a></h5>
+                {% endif %}
+            <div class="comment-container collapse" id="collapseCommentForm">
+                <div class="card card-body border-0" style="border-radius: 0;">
+                    {{ form_start(commentForm, { 'attr': {'autocomplete': 'off'} }) }}
+                    {{ form_row(commentForm.content, {'attr' : {'class' : 'excerpt comment-control'}}) }}
+                    <div class="form-group">
+                        {{ form_row(commentForm.isPublic)}}
+                    </div>
+                    <small class="textcounter float-right" id="counter">255</small>
+                    <div class="alert alert-info" role="alert" style="border-radius: 0;">
+                        Check <b>"make this public"</b> to show this comment after moderation on this page.
+                        If unchecked, this will be send as a private message to the author of this article.
+                    </div>
+                    <button type="submit" class="btn btn-sm sub-tool-light"><i class="fa fa-plus-circle"></i> Send</button>
+                    {{ form_end(commentForm) }}
+                </div>
             </div>
-        </p>
-        {% endfor %}
+            <hr>
+            <!-- COMMENTS IF AVAILABLE -->
+            {% if article.ApprovedPublicComments %}
+                {% for comment in article.ApprovedPublicComments %}
+                <p>
+                    <div class="card comment-card border-0 bg-light" style="border-radius: 0;">
+                        <div class="card-body border-0">
+                            <span>{{ comment.content }}</span>
+                            <span class="font-italic float-right"><small> {{ comment.createdAt|ago }} </small></span>
+                        </div>
+                    </div>
+                </p>
+                {% endfor %}
+            {% endif %}
+            <!-- COMMENTS END -->
+        </div>
+        <div class="col-md-2"></div>
     </div>
 {% endblock %}
 {% block javascripts %}

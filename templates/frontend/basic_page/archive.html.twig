@@ -2,9 +2,15 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block jumbotron_md %}<h1>{{ title }}</h1>{% endblock %}
+{% block jumbotron %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ title }}</h1>
+        </div>
+    </div>
+{% endblock %}
 
-{% block content_md_center %}
+{% block content %}
     <div class="row">
         <div class="col-sm-6">
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,

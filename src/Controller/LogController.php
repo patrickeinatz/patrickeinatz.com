@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
+use App\Form\CommentFormType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LogController extends AbstractController
@@ -25,15 +28,33 @@ class LogController extends AbstractController
         ]);
     }
 
-
     /**
      * @Route("/log/{slug}", name="log_entry")
      */
-    public function news(Article $article)
+    public function news(Article $article, EntityManagerInterface $em, Request $request, $slug)
     {
+        $form = $this->createForm(CommentFormType::class);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            /**@var Comment $comment**/
+            $comment = $form->getData();
+            $comment->setArticle($article);
+
+            $em->persist($comment);
+            $em->flush();
+
+            $this->addFlash('success', 'Comment was send and will be checked!');
+
+            return $this->redirect('/log/'.$slug);
+        }
+
+
         return $this->render('frontend/log/log_entry.twig', [
             'breadcrumb' => str_replace('-','_', $article->getSlug()),
             'article' => $article,
+            'commentForm' => $form->createView()
         ]);
     }
 

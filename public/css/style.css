@@ -1,33 +1,36 @@
 /* FONT FACES */
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url("../fonts/HelveticaNeue.ttf")format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica 35 Thin'), url('../fonts/woff/HelveticaNeueUltraLight.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Helvetica Neue Light';
-    src: url("../fonts/HelveticaNeueLight.ttf")format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Neue Light'), url('../fonts/woff/HelveticaNeueLight.woff') format('woff');
 }
-
 @font-face {
     font-family: 'Helvetica Neue Medium';
-    src: url("../fonts/HelveticaNeueMedium.ttf")format("truetype");
-}
-
-@font-face {
-    font-family: 'Helvetica Neue Bold';
-    src: url("../fonts/HelveticaNeueBold.ttf")format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Neue Medium'), url('../fonts/woff/HelveticaNeueMedium.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Helvetica Neue Heavy';
-    src: url("../fonts/HelveticaNeueHv.ttf")format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Neue Heavy'), url('../fonts/woff/HelveticaNeue-Black.woff') format('woff');
 }
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    font-family: "Helvetica Neue Light", sans-serif;
+    font-family: 'Helvetica Neue Light', sans-serif;
     color: #1d1e1f;
+    font-size: 1.2rem;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -37,16 +40,16 @@ body {
 }
 
 h1{
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     font-size: 60px;
 }
 
 h2, h3, h4 {
-    font-family: "Helvetica Neue Heavy", sans-serif;
+    font-family: 'Helvetica Neue Heavy', sans-serif;
 }
 
 .bolder{
-    font-family: "Helvetica Neue Heavy", sans-serif;
+    font-family: 'Helvetica Neue Heavy', sans-serif;
 }
 
 a{
@@ -59,32 +62,31 @@ a:hover{
 }
 
 .nav-item {
-    font-family: "Helvetica Neue Medium", sans-serif;
-    font-size: 14px;
+    font-family: 'Helvetica Neue Light', sans-serif;
     margin-top: 1px;
 }
 
 .navbar-brand{
-    font-size: 20px;
+    font-size: 1.3rem;
     color: #1d1e1f!important;
-    font-family: "Helvetica Neue Heavy", sans-serif;
+    font-family: 'Helvetica Neue Heavy', sans-serif;
 }
 
 .navbar-brand-thin{
-    font-size: 20px;
-    font-family: "Helvetica Neue Light", sans-serif;
+    font-size: 1.3rem;
+    font-family: 'Helvetica Neue Light', sans-serif;
     text-transform: lowercase;
 }
 
 .navbar-brand-light{
-    font-size: 20px;
+    font-size: 1.3rem;
     color: #ffffff!important;
-    font-family: "Helvetica Neue Heavy", sans-serif;
+    font-family: 'Helvetica Neue Heavy', sans-serif;
 }
 
 .navbar-brand-light-thin{
-    font-size: 20px;
-    font-family: "Helvetica Neue Light", sans-serif;
+    font-size: 1.3rem;
+    font-family: 'Helvetica Neue Light', sans-serif;
     text-transform: lowercase;
 }
 .bg-inverse{
@@ -144,7 +146,6 @@ form{
 
 .backend-table{
     color: #ffffff;
-    font-size: 14px;
 }
 
 .backend-table td, .backend-table th {
@@ -165,7 +166,7 @@ form{
     width: 100%;
     color:  #aaa;
     background-color: #ffffff;
-    font-family: "Helvetica Neue Light", sans-serif;
+    font-family: 'Helvetica Neue Light', sans-serif;
     border: 1px solid  #aaa;
     border-radius: 0px;
     padding: 7px;
@@ -180,7 +181,7 @@ form{
 }
 
 .form-input{
-    font-family: "Helvetica Neue Light", sans-serif;
+    font-family: 'Helvetica Neue Light', sans-serif;
     margin-bottom: 15px;
     border-radius: 0;
     color: #2a2c2e;
@@ -192,13 +193,12 @@ form{
 
 /*CUSTOM CHECKBOX */
 .form-checkbox-label{
-    font-size: 14px;
     margin-bottom: 10px;
 }
 
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
     border: 1px solid #1d1e1f;
-    font-family: "Helvetica Neue Light", sans-serif;
+    font-family: 'Helvetica Neue Light', sans-serif;
 }
 
 a.cold{
@@ -226,7 +226,6 @@ a.hot:hover{
 }
 
 .backend-list-element{
-    font-size: 14px;
     margin-bottom: 0;
 }
 
@@ -307,7 +306,6 @@ a.hot:hover{
 }
 
 .badge-detail{
-    font-size: 12px;
     color: #ffffff;
     padding: 5px!important;
     /* background-color: #028e8a; */ /* GREENISH */
@@ -417,6 +415,21 @@ footer{
     background-color: #2a2c2e;
 }
 
+.sub-tool-light{
+    margin-top: -4px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #cccccc;
+    color: #2a2c2e;
+    border-radius: 0;
+    border:solid 1px #ccc;
+}
+
+.sub-tool-light:hover{
+    color: #2a2c2e;
+    background-color: #eeeeee;
+}
+
 .sub-tool-inline{
     margin: 0;
     width: 100%;
@@ -439,4 +452,15 @@ footer{
     margin-top: -40px;
     margin-right: 8px;
 }
+.comment-card{
+    margin-top: 15px;
+}
 
+.comment-control{
+    border:solid 1px #ccc;
+    background: none;
+}
+
+.comment-control:focus{
+    background: none;
+}

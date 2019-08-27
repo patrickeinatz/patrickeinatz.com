@@ -26,7 +26,7 @@ class BasicPageController extends AbstractController
      */
     public function archive(SlackClient $slackClient)
     {
-        $slackClient->sendNotification('patrickeinatz.com','Jemand sieht sich das Archive an!');
+        //$slackClient->sendNotification('patrickeinatz.com','Jemand sieht sich das Archive an!');
 
         return $this->render('frontend/basic_page/archive.html.twig', [
             'title' => 'Archive'
