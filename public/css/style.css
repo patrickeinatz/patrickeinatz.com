@@ -1,34 +1,6 @@
-/* FONT FACES */
-@font-face {
-    font-family: 'Helvetica Neue';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica 35 Thin'), url('../fonts/woff/HelveticaNeueUltraLight.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Helvetica Neue Light';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Neue Light'), url('../fonts/woff/HelveticaNeueLight.woff') format('woff');
-}
-@font-face {
-    font-family: 'Helvetica Neue Medium';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Neue Medium'), url('../fonts/woff/HelveticaNeueMedium.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Helvetica Neue Heavy';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Helvetica Neue Heavy'), url('../fonts/woff/HelveticaNeue-Black.woff') format('woff');
-}
-
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    font-family: 'Helvetica Neue Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     color: #1d1e1f;
     font-size: 1.2rem;
     -webkit-font-smoothing: antialiased;
@@ -40,16 +12,17 @@ body {
 }
 
 h1{
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 60px;
 }
 
 h2, h3, h4 {
-    font-family: 'Helvetica Neue Heavy', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .bolder{
-    font-family: 'Helvetica Neue Heavy', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
 }
 
 a{
@@ -62,31 +35,31 @@ a:hover{
 }
 
 .nav-item {
-    font-family: 'Helvetica Neue Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     margin-top: 1px;
 }
 
 .navbar-brand{
     font-size: 1.3rem;
     color: #1d1e1f!important;
-    font-family: 'Helvetica Neue Heavy', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .navbar-brand-thin{
     font-size: 1.3rem;
-    font-family: 'Helvetica Neue Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     text-transform: lowercase;
 }
 
 .navbar-brand-light{
     font-size: 1.3rem;
     color: #ffffff!important;
-    font-family: 'Helvetica Neue Heavy', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .navbar-brand-light-thin{
     font-size: 1.3rem;
-    font-family: 'Helvetica Neue Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     text-transform: lowercase;
 }
 .bg-inverse{
@@ -166,7 +139,7 @@ form{
     width: 100%;
     color:  #aaa;
     background-color: #ffffff;
-    font-family: 'Helvetica Neue Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     border: 1px solid  #aaa;
     border-radius: 0px;
     padding: 7px;
@@ -181,7 +154,7 @@ form{
 }
 
 .form-input{
-    font-family: 'Helvetica Neue Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     margin-bottom: 15px;
     border-radius: 0;
     color: #2a2c2e;
@@ -198,7 +171,7 @@ form{
 
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
     border: 1px solid #1d1e1f;
-    font-family: 'Helvetica Neue Light', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 a.cold{
